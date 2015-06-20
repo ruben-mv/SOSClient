@@ -1,0 +1,1300 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<sos:Capabilities xmlns:sos="http://www.opengis.net/sos/1.0" version="1.0.0" schemaLocation="http://www.opengis.net/sos/1.0 http://schemas.opengis.net/sos/1.0.0/sosAll.xsd">
+    <ows:ServiceIdentification xmlns:ows="http://www.opengis.net/ows/1.1">
+        <ows:Title xmlns:ows="http://www.opengis.net/ows/1.1">IFGI SOS</ows:Title>
+        <ows:Abstract xmlns:ows="http://www.opengis.net/ows/1.1">52n SOS at IFGI, Muenster, Germany, SVN: ${buildNumber} @ ${timestamp}</ows:Abstract>
+        <ows:Keywords xmlns:ows="http://www.opengis.net/ows/1.1">
+            <ows:Keyword xmlns:ows="http://www.opengis.net/ows/1.1">water level, gauge height, waterspeed</ows:Keyword>
+        </ows:Keywords>
+        <ows:ServiceType xmlns:ows="http://www.opengis.net/ows/1.1" codeSpace="http://opengeospatial.net">OGC:SOS</ows:ServiceType>
+        <ows:ServiceTypeVersion xmlns:ows="http://www.opengis.net/ows/1.1">1.0.0</ows:ServiceTypeVersion>
+        <ows:Fees xmlns:ows="http://www.opengis.net/ows/1.1">NONE</ows:Fees>
+        <ows:AccessConstraints xmlns:ows="http://www.opengis.net/ows/1.1">NONE</ows:AccessConstraints>
+    </ows:ServiceIdentification>
+    <ows:ServiceProvider xmlns:ows="http://www.opengis.net/ows/1.1">
+        <ows:ProviderName xmlns:ows="http://www.opengis.net/ows/1.1">52North</ows:ProviderName>
+        <ows:ProviderSite xmlns:ows="http://www.opengis.net/ows/1.1" xlink:href="http://52north.org/swe" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+        <ows:ServiceContact xmlns:ows="http://www.opengis.net/ows/1.1">
+            <ows:IndividualName xmlns:ows="http://www.opengis.net/ows/1.1">TBA</ows:IndividualName>
+            <ows:PositionName xmlns:ows="http://www.opengis.net/ows/1.1">TBA</ows:PositionName>
+            <ows:ContactInfo xmlns:ows="http://www.opengis.net/ows/1.1">
+                <ows:Phone xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Voice xmlns:ows="http://www.opengis.net/ows/1.1">+49(0)251/396 371-0</ows:Voice>
+                </ows:Phone>
+                <ows:Address xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:DeliveryPoint xmlns:ows="http://www.opengis.net/ows/1.1">Marin-Luther-King-Weg 24</ows:DeliveryPoint>
+                    <ows:City xmlns:ows="http://www.opengis.net/ows/1.1">Muenster</ows:City>
+                    <ows:AdministrativeArea xmlns:ows="http://www.opengis.net/ows/1.1">North Rhine-Westphalia</ows:AdministrativeArea>
+                    <ows:PostalCode xmlns:ows="http://www.opengis.net/ows/1.1">48155</ows:PostalCode>
+                    <ows:Country xmlns:ows="http://www.opengis.net/ows/1.1">Germany</ows:Country>
+                    <ows:ElectronicMailAddress xmlns:ows="http://www.opengis.net/ows/1.1">info@52north.org</ows:ElectronicMailAddress>
+                </ows:Address>
+            </ows:ContactInfo>
+            <ows:Role xmlns:ows="http://www.opengis.net/ows/1.1"/>
+        </ows:ServiceContact>
+    </ows:ServiceProvider>
+    <ows:OperationsMetadata xmlns:ows="http://www.opengis.net/ows/1.1">
+        <ows:Operation xmlns:ows="http://www.opengis.net/ows/1.1" name="GetCapabilities">
+            <ows:DCP xmlns:ows="http://www.opengis.net/ows/1.1">
+                <ows:HTTP xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Get xmlns:ows="http://www.opengis.net/ows/1.1" xlink:href="http://localhost:8080/52nSOSv3/sos?" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <ows:Post xmlns:ows="http://www.opengis.net/ows/1.1" xlink:href="http://localhost:8080/52nSOSv3/sos" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                </ows:HTTP>
+            </ows:DCP>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="service">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">SOS</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="updateSequence">
+                <ows:AnyValue xmlns:ows="http://www.opengis.net/ows/1.1"/>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="AcceptVersions">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">1.0.0</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="Sections">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">ServiceIdentification</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">ServiceProvider</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">OperationsMetadata</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">Contents</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">All</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">Filter_Capabilities</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="AcceptFormats">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">text/xml</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">application/zip</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+        </ows:Operation>
+        <ows:Operation xmlns:ows="http://www.opengis.net/ows/1.1" name="GetObservation">
+            <ows:DCP xmlns:ows="http://www.opengis.net/ows/1.1">
+                <ows:HTTP xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Post xmlns:ows="http://www.opengis.net/ows/1.1" xlink:href="http://localhost:8080/52nSOSv3/sos" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                </ows:HTTP>
+            </ows:DCP>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="version">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">1.0.0</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="service">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">SOS</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="srsName">
+                <ows:AnyValue xmlns:ows="http://www.opengis.net/ows/1.1"/>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="offering">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">TEMPERATURE</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">GAUGE_HEIGHT</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">WATER_SPEED</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">CHOIVA_VENTO</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="eventTime">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Range xmlns:ows="http://www.opengis.net/ows/1.1">
+                        <ows:MinimumValue xmlns:ows="http://www.opengis.net/ows/1.1">2008-04-01T17:43:00.000+02:00</ows:MinimumValue>
+                        <ows:MaximumValue xmlns:ows="http://www.opengis.net/ows/1.1">2010-05-20T00:00:00.000+02:00</ows:MaximumValue>
+                    </ows:Range>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="procedure">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP-Vilela-A:1953</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-AGándara-A:2006</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-ANova-A:1981</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Abradelo-A:1079</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Amiudal-A:1139</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Ancares-A:69</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Arzúa-A:1963</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Baltar-A:1145</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Burela-A:1193</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Bóveda-A:1085</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-C Lugo-A:63</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-CBoi-A:1097</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-CIS Ferrol-A:57</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-CVicaludo-A:1045</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Cabo Vilán:3061</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Caldas-A:1453</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Castro-A:2014</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Castrove-A:920</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Cebreiro-A:1996</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Conchada-A:1091</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Corrubedo-A:75</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Corrubedo:3062</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Coruña-A:2035</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Coruña:3060</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-CoruñaDQ:14002</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Corón-A:989</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Courel-A:1103</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Cíes-A:1273</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-EOAS:1223</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Entrimo-A:1151</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Estaca de Bares:3063</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Ferrol:3064</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Fisterra:3065</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Fontecada-A:1030</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Fornelos-A:1026</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Foz-A:1109</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Fragavella-A:1036</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Gandarela-A:1157</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Guitiriz-A:940</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Invernadeiro-A:3</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Lardeira-A:1523</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Lira:2048</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Lourizán-A:970</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-M Aloia-A:15</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-MMedo-A:1163</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Mabegondo-A:21</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Malpica-A:1055</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Manzaneda-A:1481</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Marco da Curra-A:27</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Marroxo-A:889</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Melide-A:1040</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Mouriscade-A:45</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Muiños-A:1610</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Muralla-A:950</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Móbil01-A:90003</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-O Carballiño:3069</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-O Xipro-A:1545</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-OViso-A:1596</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Olas-A:1061</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Ons-A:1280</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Ourense-A:1261</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Ourense:3070</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-PCandieira-A:1051</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-PGalo-A:1115</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Padrón:3066</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Pedro Murias-A:33</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Pereira-A:1205</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Petarelas-A:1169</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Pobra de Trives:3071</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Pol-A:1121</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Pontenova-A:1127</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Pontevedra:3073</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Portomarín-A:1133</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Queimadelos-A:910</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-RSol-A:1067</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Rebordelo-A:1211</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Rodicio-A:51</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Rozas:3068</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Río-A:1187</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-SEixe-A:1175</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-SFaladoira-A:1073</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-SFaro-A:1217</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Sambreixo-A:9</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Santiago:3067</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Sanxenxo-A:1472</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Sergude-A:39</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Sálvora-A:1446</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-VBolo-A:1181</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Vcampus:1584</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Ventosa-A:1565</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Verín-A:960</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Vigo-A:2037</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-VigoIIM-A:1576</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Xares-A:1533</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Xinzo de Limia:3072</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Xurés-A:1199</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-AGándara-A:2007</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Amiudal-A:1561</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Ancares-A:1592</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Arzúa-A:1964</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-CIS Ferrol-A:1507</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-CVicaludo-A:1570</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Caldas-A:1555</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Castro-A:2015</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Castrove-A:1541</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Cebreiro-A:1995</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Corrubedo-A:1557</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Corón-A:1506</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-EOAS:1493</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Fontecada-A:1505</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Lira:2054</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Lourizán-A:1508</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-M Aloia-A:1553</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-MMedo-A:1509</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Malpica-A:1562</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Manzaneda-A:1480</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Muralla-A:1542</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Móbil01-A:90008</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-OViso-A:1597</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Ourense-A:1603</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-PCandieira-A:2034</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Queimadelos-A:1558</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Rebordelo-A:1550</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-SFaladoira-A:2032</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Sanxenxo-A:1556</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Sfaro-A:1554</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Vcampus:1992</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Xurés-A:1616</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2_1-Fornelos-A:1617</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP3-EOAS-RADAR:1492</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PPWS-EOAS:1494</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-ANova-A:1983</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Abradelo-A:1081</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Amiudal-A:1141</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Arzúa-A:1965</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Baltar-A:1147</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Burela-A:1195</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Bóveda-A:1087</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-C Lugo-A:61</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-CBoi-A:1099</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-CIS Ferrol-A:55</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-CVicaludo-A:1043</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Cabo Vilán:3001</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Caldas-A:1449</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Cebreiro-A:1993</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Conchada-A:1093</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Corrubedo:3002</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Coruña:3000</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-CoruñaDQ:14000</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Corón-A:991</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Courel-A:1105</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Cíes-A:1269</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-EOAS:1225</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Entrimo-A:1153</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Estaca de Bares:3003</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Ferrol:3004</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Fisterra:3005</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Fontecada-A:1028</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Fornelos-A:1027</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Foz-A:1111</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Fragavella-A:1034</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Gandarela-A:1159</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Guitiriz-A:935</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Invernadeiro-A:1</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Lourizán-A-Sónico:1001</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Lourizán-A:965</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-M Aloia-A:13</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-MMedo-A:1165</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Mabegondo-A:19</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Manzaneda-A:1618</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Marco da Curra-A:25</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Marroxo-A:884</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Melide-A:1039</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Mouriscade-A:43</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Muiños-A:1612</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Móbil01-A:90001</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-O Carballiño:3009</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-O Xipro-A:1543</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-OViso-A:1594</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Olas-A:1063</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Ons-A:1276</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Ornytion:1400</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Ourense-A:1259</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Ourense:3010</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-PCandieira-A:1052</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-PGalo-A:1117</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Padrón:3006</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Pedro Murias-A:31</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Pereira-A:1207</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Petarelas-A:1171</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Pobra de Trives:3011</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Pol-A:1123</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Pontenova-A:1129</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Pontevedra:3013</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Portomarín-A:1135</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-RSol-A:1069</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Rebordelo-A:1213</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Rozas:3008</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Río-A:1189</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-SEixe-A:1177</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-SFaladoira-A:1075</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-SFaro-A:1219</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Sambreixo-A:7</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Santiago:3007</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Sanxenxo-A:1470</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Sergude-A:37</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Sálvora-A:1442</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-VBolo-A:1183</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-VCampus-A:1606</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Ventosa-A:1563</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Verín-A:955</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-VigoIIM-A:1573</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Vilela-A:1951</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Xares-A:1531</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Xinzo de Limia:3012</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Xurés-A:1201</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV1-AGándara-A:2004</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV1-Corrubedo-A:73</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV1-Lira:2049</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV1-Malpica-A:1057</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV1-Muralla-A:945</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-AGándara-A:2031</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-CVicaludo-A:1959</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-Lira:2053</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-Malpica-A:1957</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-Muralla-A:2028</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-PCandieira-A:1958</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-SFaladoira-A:2033</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VVT-EOAS:2044</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">urn:ogc:object:feature:Sensor:IFGI:ifgi-sensor-1</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">urn:ogc:object:feature:Sensor:IFGI:ifgi-sensor-2</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">urn:ogc:object:feature:Sensor:IFGI:ifgi-sensor-3</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">urn:ogc:object:feature:Sensor:IFGI:ifgi-sensor-4</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="observedProperty">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">urn:ogc:def:phenomenon:OGC:1.0.30:temperature</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">urn:ogc:def:phenomenon:OGC:1.0.30:waterlevel</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">urn:ogc:def:phenomenon:OGC:1.0.30:waterspeed</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">GT:10 Minutal:100031</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">GT:Diario:100033</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">GT:Mensual:100035</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">DTVV:10 Minutal:100091</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV30m:10 Minutal:100331</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">GT30m:10 Minutal:100351</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PPCOR:10 Minutal:100501</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">BH:Diario:101173</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">BH:Mensual:101175</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PPMax:Mensual:101215</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">ET0:Diario:101293</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">EVA:10 Minutal:101301</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">EVA:Diario:101303</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VNN:Mensual:300095</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VNE:Mensual:300105</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VEE:Mensual:300115</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VSE:Mensual:300125</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VSS:Mensual:300135</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VSO:Mensual:300145</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VOO:Mensual:300155</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VNO:Mensual:300165</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV:10 Minutal:811</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV:Diario:813</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV:Mensual:815</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="featureOfInterest">
+                <ows:AnyValue xmlns:ows="http://www.opengis.net/ows/1.1"/>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="result">
+                <ows:AnyValue xmlns:ows="http://www.opengis.net/ows/1.1"/>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="responseFormat">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">text/xml;subtype="OM/1.0.0"</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">application/zip</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="resultModel">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">om:Observation</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">om:CategoryObservation</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">om:Measurement</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">om:SpatialObservation</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="responseMode">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">resultTemplate</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">inline</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+        </ows:Operation>
+        <ows:Operation xmlns:ows="http://www.opengis.net/ows/1.1" name="GetObservationById">
+            <ows:DCP xmlns:ows="http://www.opengis.net/ows/1.1">
+                <ows:HTTP xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Post xmlns:ows="http://www.opengis.net/ows/1.1" xlink:href="http://localhost:8080/52nSOSv3/sos" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                </ows:HTTP>
+            </ows:DCP>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="version">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">1.0.0</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="service">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">SOS</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="srsName">
+                <ows:AnyValue xmlns:ows="http://www.opengis.net/ows/1.1"/>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="ObservationId">
+                <ows:AnyValue xmlns:ows="http://www.opengis.net/ows/1.1"/>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="responseFormat">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">text/xml;subtype="OM/1.0.0"</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">application/zip</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="resultModel">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">om:Observation</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">om:CategoryObservation</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">om:Measurement</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">om:SpatialObservation</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="responseMode">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">inline</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">resultTemplate</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+        </ows:Operation>
+        <ows:Operation xmlns:ows="http://www.opengis.net/ows/1.1" name="DescribeSensor">
+            <ows:DCP xmlns:ows="http://www.opengis.net/ows/1.1">
+                <ows:HTTP xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Post xmlns:ows="http://www.opengis.net/ows/1.1" xlink:href="http://localhost:8080/52nSOSv3/sos" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                </ows:HTTP>
+            </ows:DCP>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="version">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">1.0.0</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="service">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">SOS</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="outputFormat">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">text/xml;subtype="sensorML/1.0.1"</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="procedure">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP-Vilela-A:1953</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-AGándara-A:2006</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-ANova-A:1981</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Abradelo-A:1079</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Amiudal-A:1139</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Ancares-A:69</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Arzúa-A:1963</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Baltar-A:1145</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Burela-A:1193</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Bóveda-A:1085</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-C Lugo-A:63</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-CBoi-A:1097</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-CIS Ferrol-A:57</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-CVicaludo-A:1045</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Cabo Vilán:3061</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Caldas-A:1453</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Castro-A:2014</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Castrove-A:920</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Cebreiro-A:1996</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Conchada-A:1091</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Corrubedo-A:75</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Corrubedo:3062</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Coruña-A:2035</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Coruña:3060</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-CoruñaDQ:14002</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Corón-A:989</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Courel-A:1103</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Cíes-A:1273</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-EOAS:1223</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Entrimo-A:1151</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Estaca de Bares:3063</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Ferrol:3064</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Fisterra:3065</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Fontecada-A:1030</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Fornelos-A:1026</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Foz-A:1109</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Fragavella-A:1036</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Gandarela-A:1157</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Guitiriz-A:940</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Invernadeiro-A:3</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Lardeira-A:1523</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Lira:2048</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Lourizán-A:970</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-M Aloia-A:15</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-MMedo-A:1163</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Mabegondo-A:21</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Malpica-A:1055</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Manzaneda-A:1481</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Marco da Curra-A:27</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Marroxo-A:889</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Melide-A:1040</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Mouriscade-A:45</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Muiños-A:1610</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Muralla-A:950</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Móbil01-A:90003</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-O Carballiño:3069</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-O Xipro-A:1545</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-OViso-A:1596</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Olas-A:1061</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Ons-A:1280</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Ourense-A:1261</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Ourense:3070</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-PCandieira-A:1051</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-PGalo-A:1115</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Padrón:3066</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Pedro Murias-A:33</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Pereira-A:1205</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Petarelas-A:1169</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Pobra de Trives:3071</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Pol-A:1121</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Pontenova-A:1127</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Pontevedra:3073</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Portomarín-A:1133</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Queimadelos-A:910</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-RSol-A:1067</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Rebordelo-A:1211</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Rodicio-A:51</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Rozas:3068</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Río-A:1187</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-SEixe-A:1175</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-SFaladoira-A:1073</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-SFaro-A:1217</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Sambreixo-A:9</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Santiago:3067</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Sanxenxo-A:1472</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Sergude-A:39</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Sálvora-A:1446</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-VBolo-A:1181</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Vcampus:1584</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Ventosa-A:1565</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Verín-A:960</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Vigo-A:2037</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-VigoIIM-A:1576</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Xares-A:1533</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Xinzo de Limia:3072</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP1-Xurés-A:1199</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-AGándara-A:2007</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Amiudal-A:1561</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Ancares-A:1592</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Arzúa-A:1964</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-CIS Ferrol-A:1507</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-CVicaludo-A:1570</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Caldas-A:1555</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Castro-A:2015</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Castrove-A:1541</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Cebreiro-A:1995</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Corrubedo-A:1557</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Corón-A:1506</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-EOAS:1493</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Fontecada-A:1505</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Lira:2054</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Lourizán-A:1508</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-M Aloia-A:1553</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-MMedo-A:1509</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Malpica-A:1562</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Manzaneda-A:1480</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Muralla-A:1542</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Móbil01-A:90008</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-OViso-A:1597</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Ourense-A:1603</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-PCandieira-A:2034</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Queimadelos-A:1558</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Rebordelo-A:1550</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-SFaladoira-A:2032</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Sanxenxo-A:1556</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Sfaro-A:1554</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Vcampus:1992</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2-Xurés-A:1616</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP2_1-Fornelos-A:1617</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PP3-EOAS-RADAR:1492</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">PPWS-EOAS:1494</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-ANova-A:1983</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Abradelo-A:1081</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Amiudal-A:1141</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Arzúa-A:1965</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Baltar-A:1147</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Burela-A:1195</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Bóveda-A:1087</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-C Lugo-A:61</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-CBoi-A:1099</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-CIS Ferrol-A:55</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-CVicaludo-A:1043</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Cabo Vilán:3001</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Caldas-A:1449</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Cebreiro-A:1993</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Conchada-A:1093</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Corrubedo:3002</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Coruña:3000</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-CoruñaDQ:14000</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Corón-A:991</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Courel-A:1105</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Cíes-A:1269</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-EOAS:1225</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Entrimo-A:1153</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Estaca de Bares:3003</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Ferrol:3004</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Fisterra:3005</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Fontecada-A:1028</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Fornelos-A:1027</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Foz-A:1111</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Fragavella-A:1034</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Gandarela-A:1159</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Guitiriz-A:935</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Invernadeiro-A:1</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Lourizán-A-Sónico:1001</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Lourizán-A:965</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-M Aloia-A:13</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-MMedo-A:1165</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Mabegondo-A:19</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Manzaneda-A:1618</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Marco da Curra-A:25</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Marroxo-A:884</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Melide-A:1039</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Mouriscade-A:43</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Muiños-A:1612</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Móbil01-A:90001</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-O Carballiño:3009</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-O Xipro-A:1543</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-OViso-A:1594</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Olas-A:1063</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Ons-A:1276</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Ornytion:1400</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Ourense-A:1259</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Ourense:3010</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-PCandieira-A:1052</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-PGalo-A:1117</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Padrón:3006</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Pedro Murias-A:31</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Pereira-A:1207</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Petarelas-A:1171</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Pobra de Trives:3011</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Pol-A:1123</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Pontenova-A:1129</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Pontevedra:3013</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Portomarín-A:1135</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-RSol-A:1069</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Rebordelo-A:1213</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Rozas:3008</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Río-A:1189</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-SEixe-A:1177</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-SFaladoira-A:1075</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-SFaro-A:1219</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Sambreixo-A:7</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Santiago:3007</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Sanxenxo-A:1470</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Sergude-A:37</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Sálvora-A:1442</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-VBolo-A:1183</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-VCampus-A:1606</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Ventosa-A:1563</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Verín-A:955</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-VigoIIM-A:1573</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Vilela-A:1951</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Xares-A:1531</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Xinzo de Limia:3012</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV-Xurés-A:1201</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV1-AGándara-A:2004</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV1-Corrubedo-A:73</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV1-Lira:2049</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV1-Malpica-A:1057</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV1-Muralla-A:945</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-AGándara-A:2031</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-CVicaludo-A:1959</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-Lira:2053</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-Malpica-A:1957</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-Muralla-A:2028</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-PCandieira-A:1958</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VV2-SFaladoira-A:2033</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">VVT-EOAS:2044</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">urn:ogc:object:feature:Sensor:IFGI:ifgi-sensor-1</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">urn:ogc:object:feature:Sensor:IFGI:ifgi-sensor-2</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">urn:ogc:object:feature:Sensor:IFGI:ifgi-sensor-3</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">urn:ogc:object:feature:Sensor:IFGI:ifgi-sensor-4</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+        </ows:Operation>
+        <ows:Operation xmlns:ows="http://www.opengis.net/ows/1.1" name="GetFeatureOfInterest">
+            <ows:DCP xmlns:ows="http://www.opengis.net/ows/1.1">
+                <ows:HTTP xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Post xmlns:ows="http://www.opengis.net/ows/1.1" xlink:href="http://localhost:8080/52nSOSv3/sos" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                </ows:HTTP>
+            </ows:DCP>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="service">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">SOS</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="version">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">1.0.0</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="featureOfInterestId">
+                <ows:AllowedValues xmlns:ows="http://www.opengis.net/ows/1.1">
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_1001</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_2001</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10001</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_20001</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_30001</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_40001</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_50001</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10045</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10046</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10047</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10048</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10049</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10050</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10052</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10053</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10055</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10056</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10057</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10058</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10060</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10061</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10062</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10063</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10064</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10067</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10085</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10086</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10087</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10088</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10089</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10091</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10092</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10093</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10094</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10095</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10096</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10097</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10098</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10099</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10100</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10101</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10102</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10103</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10104</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10105</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10106</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10107</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10108</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10109</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10110</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10111</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10112</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10113</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10114</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10115</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10116</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10117</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10118</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10119</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10120</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10121</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10122</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10123</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10124</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10125</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10126</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10127</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10128</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10129</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10130</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10131</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10132</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10135</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10136</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10137</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10138</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10139</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10141</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10142</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10144</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10146</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10152</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10153</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10154</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10160</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_10161</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_14000</ows:Value>
+                    <ows:Value xmlns:ows="http://www.opengis.net/ows/1.1">foi_19003</ows:Value>
+                </ows:AllowedValues>
+            </ows:Parameter>
+            <ows:Parameter xmlns:ows="http://www.opengis.net/ows/1.1" name="location">
+                <ows:AnyValue xmlns:ows="http://www.opengis.net/ows/1.1"/>
+            </ows:Parameter>
+        </ows:Operation>
+    </ows:OperationsMetadata>
+    <sos:Filter_Capabilities xmlns:sos="http://www.opengis.net/sos/1.0">
+        <ogc:Spatial_Capabilities xmlns:ogc="http://www.opengis.net/ogc">
+            <ogc:GeometryOperands xmlns:ogc="http://www.opengis.net/ogc">
+                <ogc:GeometryOperand xmlns:ogc="http://www.opengis.net/ogc">gml:Envelope</ogc:GeometryOperand>
+                <ogc:GeometryOperand xmlns:ogc="http://www.opengis.net/ogc">gml:Polygon</ogc:GeometryOperand>
+                <ogc:GeometryOperand xmlns:ogc="http://www.opengis.net/ogc">gml:Point</ogc:GeometryOperand>
+                <ogc:GeometryOperand xmlns:ogc="http://www.opengis.net/ogc">gml:LineString</ogc:GeometryOperand>
+            </ogc:GeometryOperands>
+            <ogc:SpatialOperators xmlns:ogc="http://www.opengis.net/ogc">
+                <ogc:SpatialOperator xmlns:ogc="http://www.opengis.net/ogc" name="BBOX"/>
+                <ogc:SpatialOperator xmlns:ogc="http://www.opengis.net/ogc" name="Contains"/>
+                <ogc:SpatialOperator xmlns:ogc="http://www.opengis.net/ogc" name="Intersects"/>
+                <ogc:SpatialOperator xmlns:ogc="http://www.opengis.net/ogc" name="Overlaps"/>
+            </ogc:SpatialOperators>
+        </ogc:Spatial_Capabilities>
+        <ogc:Temporal_Capabilities xmlns:ogc="http://www.opengis.net/ogc">
+            <ogc:TemporalOperands xmlns:ogc="http://www.opengis.net/ogc">
+                <ogc:TemporalOperand xmlns:ogc="http://www.opengis.net/ogc">gml:TimeInstant</ogc:TemporalOperand>
+                <ogc:TemporalOperand xmlns:ogc="http://www.opengis.net/ogc">gml:TimePeriod</ogc:TemporalOperand>
+            </ogc:TemporalOperands>
+            <ogc:TemporalOperators xmlns:ogc="http://www.opengis.net/ogc">
+                <ogc:TemporalOperator xmlns:ogc="http://www.opengis.net/ogc" name="TM_During"/>
+                <ogc:TemporalOperator xmlns:ogc="http://www.opengis.net/ogc" name="TM_Equals"/>
+                <ogc:TemporalOperator xmlns:ogc="http://www.opengis.net/ogc" name="TM_After"/>
+                <ogc:TemporalOperator xmlns:ogc="http://www.opengis.net/ogc" name="TM_Before"/>
+            </ogc:TemporalOperators>
+        </ogc:Temporal_Capabilities>
+        <ogc:Scalar_Capabilities xmlns:ogc="http://www.opengis.net/ogc">
+            <ogc:ComparisonOperators xmlns:ogc="http://www.opengis.net/ogc">
+                <ogc:ComparisonOperator xmlns:ogc="http://www.opengis.net/ogc">Between</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator xmlns:ogc="http://www.opengis.net/ogc">EqualTo</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator xmlns:ogc="http://www.opengis.net/ogc">NotEqualTo</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator xmlns:ogc="http://www.opengis.net/ogc">LessThan</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator xmlns:ogc="http://www.opengis.net/ogc">LessThanEqualTo</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator xmlns:ogc="http://www.opengis.net/ogc">GreaterThan</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator xmlns:ogc="http://www.opengis.net/ogc">GreaterThanEqualTo</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator xmlns:ogc="http://www.opengis.net/ogc">Like</ogc:ComparisonOperator>
+            </ogc:ComparisonOperators>
+        </ogc:Scalar_Capabilities>
+        <ogc:Id_Capabilities xmlns:ogc="http://www.opengis.net/ogc">
+            <ogc:FID xmlns:ogc="http://www.opengis.net/ogc"/>
+            <ogc:EID xmlns:ogc="http://www.opengis.net/ogc"/>
+        </ogc:Id_Capabilities>
+    </sos:Filter_Capabilities>
+    <sos:Contents xmlns:sos="http://www.opengis.net/sos/1.0">
+        <sos:ObservationOfferingList xmlns:sos="http://www.opengis.net/sos/1.0">
+            <sos:ObservationOffering xmlns:sos="http://www.opengis.net/sos/1.0" gml:id="TEMPERATURE" xmlns:gml="http://www.opengis.net/gml">
+                <gml:name xmlns:gml="http://www.opengis.net/gml">The temperature in a certain area</gml:name>
+                <gml:boundedBy xmlns:gml="http://www.opengis.net/gml">
+                    <gml:Envelope xmlns:gml="http://www.opengis.net/gml" srsName="urn:ogc:def:crs:EPSG:4326">
+                        <gml:lowerCorner xmlns:gml="http://www.opengis.net/gml">51.883906 8.76667</gml:lowerCorner>
+                        <gml:upperCorner xmlns:gml="http://www.opengis.net/gml">51.883906 9.16667</gml:upperCorner>
+                    </gml:Envelope>
+                </gml:boundedBy>
+                <sos:time xmlns:sos="http://www.opengis.net/sos/1.0">
+                    <gml:TimePeriod xmlns:gml="http://www.opengis.net/gml" xsi:type="gml:TimePeriodType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <gml:beginPosition xmlns:gml="http://www.opengis.net/gml">2008-04-01T17:44:00.000+02:00</gml:beginPosition>
+                        <gml:endPosition xmlns:gml="http://www.opengis.net/gml">2008-04-01T17:48:00.000+02:00</gml:endPosition>
+                    </gml:TimePeriod>
+                </sos:time>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="urn:ogc:object:feature:Sensor:IFGI:ifgi-sensor-3" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="urn:ogc:object:feature:Sensor:IFGI:ifgi-sensor-4" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="urn:ogc:def:phenomenon:OGC:1.0.30:temperature" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_30001" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_50001" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10001" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_20001" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_40001" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:responseFormat xmlns:sos="http://www.opengis.net/sos/1.0">text/xml;subtype="om/1.0.0"</sos:responseFormat>
+                <sos:responseFormat xmlns:sos="http://www.opengis.net/sos/1.0">application/zip</sos:responseFormat>
+                <sos:resultModel xmlns:sos="http://www.opengis.net/sos/1.0">ns:Measurement</sos:resultModel>
+                <sos:resultModel xmlns:sos="http://www.opengis.net/sos/1.0">ns:Observation</sos:resultModel>
+                <sos:responseMode xmlns:sos="http://www.opengis.net/sos/1.0">inline</sos:responseMode>
+                <sos:responseMode xmlns:sos="http://www.opengis.net/sos/1.0">resultTemplate</sos:responseMode>
+            </sos:ObservationOffering>
+            <sos:ObservationOffering xmlns:sos="http://www.opengis.net/sos/1.0" gml:id="GAUGE_HEIGHT" xmlns:gml="http://www.opengis.net/gml">
+                <gml:name xmlns:gml="http://www.opengis.net/gml">The water level in a river</gml:name>
+                <gml:boundedBy xmlns:gml="http://www.opengis.net/gml">
+                    <gml:Envelope xmlns:gml="http://www.opengis.net/gml" srsName="urn:ogc:def:crs:EPSG:4326">
+                        <gml:lowerCorner xmlns:gml="http://www.opengis.net/gml">52.9 7.52</gml:lowerCorner>
+                        <gml:upperCorner xmlns:gml="http://www.opengis.net/gml">52.9 7.52</gml:upperCorner>
+                    </gml:Envelope>
+                </gml:boundedBy>
+                <sos:time xmlns:sos="http://www.opengis.net/sos/1.0">
+                    <gml:TimePeriod xmlns:gml="http://www.opengis.net/gml" xsi:type="gml:TimePeriodType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <gml:beginPosition xmlns:gml="http://www.opengis.net/gml">2008-04-01T17:44:00.000+02:00</gml:beginPosition>
+                        <gml:endPosition xmlns:gml="http://www.opengis.net/gml">2008-04-01T17:49:00.000+02:00</gml:endPosition>
+                    </gml:TimePeriod>
+                </sos:time>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="urn:ogc:object:feature:Sensor:IFGI:ifgi-sensor-1" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="urn:ogc:def:phenomenon:OGC:1.0.30:waterlevel" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_1001" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:responseFormat xmlns:sos="http://www.opengis.net/sos/1.0">text/xml;subtype="om/1.0.0"</sos:responseFormat>
+                <sos:responseFormat xmlns:sos="http://www.opengis.net/sos/1.0">application/zip</sos:responseFormat>
+                <sos:resultModel xmlns:sos="http://www.opengis.net/sos/1.0">ns:Measurement</sos:resultModel>
+                <sos:resultModel xmlns:sos="http://www.opengis.net/sos/1.0">ns:Observation</sos:resultModel>
+                <sos:responseMode xmlns:sos="http://www.opengis.net/sos/1.0">inline</sos:responseMode>
+                <sos:responseMode xmlns:sos="http://www.opengis.net/sos/1.0">resultTemplate</sos:responseMode>
+            </sos:ObservationOffering>
+            <sos:ObservationOffering xmlns:sos="http://www.opengis.net/sos/1.0" gml:id="WATER_SPEED" xmlns:gml="http://www.opengis.net/gml">
+                <gml:name xmlns:gml="http://www.opengis.net/gml">The waterspeed at a gage in a river</gml:name>
+                <gml:boundedBy xmlns:gml="http://www.opengis.net/gml">
+                    <gml:Envelope xmlns:gml="http://www.opengis.net/gml" srsName="urn:ogc:def:crs:EPSG:4326">
+                        <gml:lowerCorner xmlns:gml="http://www.opengis.net/gml">51.7167 8.76667</gml:lowerCorner>
+                        <gml:upperCorner xmlns:gml="http://www.opengis.net/gml">51.7167 8.76667</gml:upperCorner>
+                    </gml:Envelope>
+                </gml:boundedBy>
+                <sos:time xmlns:sos="http://www.opengis.net/sos/1.0">
+                    <gml:TimePeriod xmlns:gml="http://www.opengis.net/gml" xsi:type="gml:TimePeriodType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <gml:beginPosition xmlns:gml="http://www.opengis.net/gml">2008-04-01T17:43:00.000+02:00</gml:beginPosition>
+                        <gml:endPosition xmlns:gml="http://www.opengis.net/gml">2008-04-01T17:51:00.000+02:00</gml:endPosition>
+                    </gml:TimePeriod>
+                </sos:time>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="urn:ogc:object:feature:Sensor:IFGI:ifgi-sensor-2" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="urn:ogc:def:phenomenon:OGC:1.0.30:waterspeed" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_2001" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:responseFormat xmlns:sos="http://www.opengis.net/sos/1.0">text/xml;subtype="om/1.0.0"</sos:responseFormat>
+                <sos:responseFormat xmlns:sos="http://www.opengis.net/sos/1.0">application/zip</sos:responseFormat>
+                <sos:resultModel xmlns:sos="http://www.opengis.net/sos/1.0">ns:CategoryObservation</sos:resultModel>
+                <sos:resultModel xmlns:sos="http://www.opengis.net/sos/1.0">ns:Observation</sos:resultModel>
+                <sos:responseMode xmlns:sos="http://www.opengis.net/sos/1.0">inline</sos:responseMode>
+                <sos:responseMode xmlns:sos="http://www.opengis.net/sos/1.0">resultTemplate</sos:responseMode>
+            </sos:ObservationOffering>
+            <sos:ObservationOffering xmlns:sos="http://www.opengis.net/sos/1.0" gml:id="CHOIVA_VENTO" xmlns:gml="http://www.opengis.net/gml">
+                <gml:name xmlns:gml="http://www.opengis.net/gml">A choiva, balances hidricos e velocidade do vento en Galicia</gml:name>
+                <gml:boundedBy xmlns:gml="http://www.opengis.net/gml">
+                    <gml:Envelope xmlns:gml="http://www.opengis.net/gml" srsName="urn:ogc:def:crs:EPSG:4326">
+                        <gml:lowerCorner xmlns:gml="http://www.opengis.net/gml">41.9036 -9.12601</gml:lowerCorner>
+                        <gml:upperCorner xmlns:gml="http://www.opengis.net/gml">43.7043 -6.78346</gml:upperCorner>
+                    </gml:Envelope>
+                </gml:boundedBy>
+                <sos:time xmlns:sos="http://www.opengis.net/sos/1.0">
+                    <gml:TimePeriod xmlns:gml="http://www.opengis.net/gml" xsi:type="gml:TimePeriodType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <gml:beginPosition xmlns:gml="http://www.opengis.net/gml">2010-01-01T00:00:00.000+01:00</gml:beginPosition>
+                        <gml:endPosition xmlns:gml="http://www.opengis.net/gml">2010-05-20T00:00:00.000+02:00</gml:endPosition>
+                    </gml:TimePeriod>
+                </sos:time>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Fontecada-A:1030" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-SFaro-A:1219" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Arzúa-A:1963" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Xares-A:1531" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-VCampus-A:1606" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Río-A:1187" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Pereira-A:1207" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Guitiriz-A:940" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-MMedo-A:1509" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Cabo Vilán:3001" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-EOAS:1225" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Melide-A:1039" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Sergude-A:37" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-MMedo-A:1163" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-EOAS:1223" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Petarelas-A:1169" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Lourizán-A:970" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Muralla-A:1542" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Sálvora-A:1446" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Fragavella-A:1036" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Sambreixo-A:7" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV2-AGándara-A:2031" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Sanxenxo-A:1556" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-RSol-A:1067" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-PCandieira-A:1051" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Xurés-A:1199" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Bóveda-A:1087" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Móbil01-A:90003" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Rebordelo-A:1211" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Queimadelos-A:910" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Amiudal-A:1139" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Portomarín-A:1133" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-O Xipro-A:1543" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Santiago:3067" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-CIS Ferrol-A:57" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Pereira-A:1205" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-O Carballiño:3069" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Foz-A:1109" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Vcampus:1992" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Mabegondo-A:21" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-VBolo-A:1183" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV1-Lira:2049" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Gandarela-A:1157" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Xinzo de Limia:3072" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Arzúa-A:1964" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV1-Corrubedo-A:73" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Xinzo de Limia:3012" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Manzaneda-A:1481" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Lardeira-A:1523" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Muiños-A:1610" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Corrubedo:3062" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Corón-A:991" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Guitiriz-A:935" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Malpica-A:1055" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Xares-A:1533" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Queimadelos-A:1558" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Padrón:3006" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Corón-A:989" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Fontecada-A:1505" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Ourense-A:1259" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-SEixe-A:1177" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Invernadeiro-A:1" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-O Carballiño:3009" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-SFaladoira-A:2032" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Fontecada-A:1028" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-M Aloia-A:15" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Marco da Curra-A:27" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Lira:2048" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Sanxenxo-A:1472" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Mabegondo-A:19" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Courel-A:1105" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Muralla-A:950" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Lourizán-A:1508" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-OViso-A:1596" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-ANova-A:1981" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-O Xipro-A:1545" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Rebordelo-A:1550" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP-Vilela-A:1953" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV2-Malpica-A:1957" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Corrubedo-A:1557" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Mouriscade-A:43" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV2-Muralla-A:2028" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Coruña:3000" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Fisterra:3005" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Fornelos-A:1027" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Ancares-A:1592" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Ferrol:3004" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Móbil01-A:90001" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Burela-A:1195" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Ourense:3010" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Cabo Vilán:3061" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-CIS Ferrol-A:1507" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Pontevedra:3073" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Castrove-A:1541" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-M Aloia-A:1553" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP3-EOAS-RADAR:1492" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Coruña:3060" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Cíes-A:1269" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-OViso-A:1594" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Rozas:3008" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Ornytion:1400" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Marco da Curra-A:25" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Lira:2054" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-CVicaludo-A:1045" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Gandarela-A:1159" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Padrón:3066" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV2-Lira:2053" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Sálvora-A:1442" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-AGándara-A:2006" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Móbil01-A:90008" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-PCandieira-A:2034" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-SEixe-A:1175" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-C Lugo-A:63" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Manzaneda-A:1618" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-AGándara-A:2007" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Sambreixo-A:9" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Pedro Murias-A:33" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV1-Muralla-A:945" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Verín-A:955" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Amiudal-A:1561" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Coruña-A:2035" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-PCandieira-A:1052" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Ventosa-A:1565" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Abradelo-A:1079" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV1-Malpica-A:1057" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-EOAS:1493" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Malpica-A:1562" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Río-A:1189" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Conchada-A:1093" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV2-CVicaludo-A:1959" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-RSol-A:1069" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Bóveda-A:1085" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Amiudal-A:1141" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Sergude-A:39" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Olas-A:1063" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Vigo-A:2037" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Verín-A:960" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Arzúa-A:1965" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV2-SFaladoira-A:2033" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Pontenova-A:1127" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Xurés-A:1616" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Cebreiro-A:1995" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Pontevedra:3013" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Cebreiro-A:1996" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Lourizán-A-Sónico:1001" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Fisterra:3065" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Xurés-A:1201" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2_1-Fornelos-A:1617" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-MMedo-A:1165" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Ons-A:1280" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Rozas:3068" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Conchada-A:1091" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-CBoi-A:1097" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Entrimo-A:1153" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-VigoIIM-A:1576" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-CoruñaDQ:14002" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Marroxo-A:889" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Caldas-A:1449" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Lourizán-A:965" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Petarelas-A:1171" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Burela-A:1193" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-CVicaludo-A:1570" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-M Aloia-A:13" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Melide-A:1040" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Entrimo-A:1151" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-CVicaludo-A:1043" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Corrubedo:3002" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Caldas-A:1555" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PPWS-EOAS:1494" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Castro-A:2015" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Estaca de Bares:3063" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Castro-A:2014" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Fornelos-A:1026" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-VBolo-A:1181" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Ferrol:3064" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-CoruñaDQ:14000" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Manzaneda-A:1480" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Abradelo-A:1081" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Pobra de Trives:3071" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV2-PCandieira-A:1958" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Pol-A:1121" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Courel-A:1103" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Baltar-A:1147" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Ourense-A:1261" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Cíes-A:1273" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Sfaro-A:1554" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-VigoIIM-A:1573" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Fragavella-A:1034" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Rodicio-A:51" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-C Lugo-A:61" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-CIS Ferrol-A:55" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Rebordelo-A:1213" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Pobra de Trives:3011" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Baltar-A:1145" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Castrove-A:920" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-SFaro-A:1217" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Vcampus:1584" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Ons-A:1276" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV1-AGándara-A:2004" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-CBoi-A:1099" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-SFaladoira-A:1075" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Ventosa-A:1563" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Muiños-A:1612" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Olas-A:1061" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Estaca de Bares:3003" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Cebreiro-A:1993" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Corón-A:1506" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Marroxo-A:884" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Vilela-A:1951" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Mouriscade-A:45" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Foz-A:1111" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Pol-A:1123" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VVT-EOAS:2044" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Corrubedo-A:75" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Pedro Murias-A:31" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Portomarín-A:1135" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Caldas-A:1453" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-PGalo-A:1115" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Sanxenxo-A:1470" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Ancares-A:69" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Ourense:3070" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Pontenova-A:1129" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-ANova-A:1983" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-Invernadeiro-A:3" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-Santiago:3007" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-OViso-A:1597" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP1-SFaladoira-A:1073" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV-PGalo-A:1117" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:procedure xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PP2-Ourense-A:1603" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="GT:10 Minutal:100031" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="GT:Diario:100033" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="GT:Mensual:100035" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="DTVV:10 Minutal:100091" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV30m:10 Minutal:100331" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="GT30m:10 Minutal:100351" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PPCOR:10 Minutal:100501" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="BH:Diario:101173" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="BH:Mensual:101175" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="PPMax:Mensual:101215" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="ET0:Diario:101293" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="EVA:10 Minutal:101301" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="EVA:Diario:101303" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VNN:Mensual:300095" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VNE:Mensual:300105" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VEE:Mensual:300115" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VSE:Mensual:300125" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VSS:Mensual:300135" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VSO:Mensual:300145" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VOO:Mensual:300155" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VNO:Mensual:300165" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV:10 Minutal:811" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV:Diario:813" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:observedProperty xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="VV:Mensual:815" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10124" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_14000" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10144" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10122" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10063" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10096" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10138" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10113" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10088" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10092" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10142" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10132" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10099" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10139" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10050" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10102" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10116" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10100" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10048" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10115" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10046" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10136" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10146" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10060" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10101" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10095" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10121" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10087" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10098" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10109" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10058" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10112" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10117" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10057" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10126" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10137" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10107" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10049" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10127" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10152" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10154" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10153" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10105" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10114" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10047" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10108" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10094" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10055" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10062" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10091" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10067" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10097" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10052" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10119" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10131" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10061" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10045" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10104" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10120" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10103" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10141" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10053" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10056" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10111" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10118" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10129" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10093" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10160" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10064" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10089" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10135" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10123" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10106" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10085" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10161" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10110" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10086" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10125" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_19003" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10128" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:featureOfInterest xmlns:sos="http://www.opengis.net/sos/1.0" xlink:href="foi_10130" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                <sos:responseFormat xmlns:sos="http://www.opengis.net/sos/1.0">text/xml;subtype="om/1.0.0"</sos:responseFormat>
+                <sos:responseFormat xmlns:sos="http://www.opengis.net/sos/1.0">application/zip</sos:responseFormat>
+                <sos:resultModel xmlns:sos="http://www.opengis.net/sos/1.0">ns:Measurement</sos:resultModel>
+                <sos:resultModel xmlns:sos="http://www.opengis.net/sos/1.0">ns:Observation</sos:resultModel>
+                <sos:responseMode xmlns:sos="http://www.opengis.net/sos/1.0">inline</sos:responseMode>
+                <sos:responseMode xmlns:sos="http://www.opengis.net/sos/1.0">resultTemplate</sos:responseMode>
+            </sos:ObservationOffering>
+        </sos:ObservationOfferingList>
+    </sos:Contents>
+</sos:Capabilities>
+

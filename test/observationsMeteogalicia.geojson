@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "foi": "meteoroloxicas_Vilela-A_10500", "name": "Vilela-A", "Time": "2015-01-28T20:40:00", "tmin": 7.06 }, "geometry": { "type": "Point", "coordinates": [ -7.439187194446438, 41.953009425164552 ] } }
+]
+}

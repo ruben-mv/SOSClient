@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<om:ObservationCollection xmlns:om="http://www.opengis.net/om/1.0" xsi:schemaLocation="http://www.opengis.net/om/1.0 http://schemas.opengis.net/om/1.0.0/om.xsd http://www.opengis.net/sampling/1.0 http://schemas.opengis.net/sampling/1.0.0/sampling.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="oc_0" xmlns:gml="http://www.opengis.net/gml">
+    <gml:boundedBy xmlns:gml="http://www.opengis.net/gml">
+        <gml:Envelope xmlns:gml="http://www.opengis.net/gml" srsName="urn:ogc:def:crs:EPSG:0">
+            <gml:lowerCorner xmlns:gml="http://www.opengis.net/gml">41.90360871409407 -9.1260063985413</gml:lowerCorner>
+            <gml:upperCorner xmlns:gml="http://www.opengis.net/gml">43.64485122189036 -6.915303326137016</gml:upperCorner>
+        </gml:Envelope>
+    </gml:boundedBy>
+    <om:member xmlns:om="http://www.opengis.net/om/1.0">
+        <om:Observation xmlns:om="http://www.opengis.net/om/1.0" gml:id="meteoroloxicas_2015-01-28T20:40:00.000_2015-01-28T20:40:00.000_1:2:3:4:5:6:7:8:9:10:11:12:13:14" xmlns:gml="http://www.opengis.net/gml">
+            <om:samplingTime xmlns:om="http://www.opengis.net/om/1.0">
+                <gml:TimePeriod xmlns:gml="http://www.opengis.net/gml" xsi:type="gml:TimePeriodType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <gml:beginPosition xmlns:gml="http://www.opengis.net/gml">2015-01-28T20:40:00.000</gml:beginPosition>
+                    <gml:endPosition xmlns:gml="http://www.opengis.net/gml">2015-01-28T20:40:00.000</gml:endPosition>
+                </gml:TimePeriod>
+            </om:samplingTime>
+            <om:procedure xmlns:om="http://www.opengis.net/om/1.0" xlink:href="meteoroloxicas_TH-Vilela-A_1950" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            <om:observedProperty xmlns:om="http://www.opengis.net/om/1.0">
+                <swe:CompositePhenomenon xmlns:swe="http://www.opengis.net/swe/1.0.1" dimension="1" gml:id="cpid0" xmlns:gml="http://www.opengis.net/gml">
+                    <gml:name xmlns:gml="http://www.opengis.net/gml">resultComponents</gml:name>
+                    <swe:component xmlns:swe="http://www.opengis.net/swe/1.0.1" xlink:href="urn:ogc:data:time:iso8601" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <swe:component xmlns:swe="http://www.opengis.net/swe/1.0.1" xlink:href="tmin" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                </swe:CompositePhenomenon>
+            </om:observedProperty>
+            <om:featureOfInterest xmlns:om="http://www.opengis.net/om/1.0">
+                <gml:FeatureCollection xmlns:gml="http://www.opengis.net/gml">
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml">
+                        <sa:SamplingPoint xmlns:sa="http://www.opengis.net/sampling/1.0" gml:id="meteoroloxicas_Vilela-A_10500" xmlns:gml="http://www.opengis.net/gml">
+                            <gml:name xmlns:gml="http://www.opengis.net/gml">Vilela-A</gml:name>
+                            <sa:sampledFeature xmlns:sa="http://www.opengis.net/sampling/1.0"/>
+                            <sa:position xmlns:sa="http://www.opengis.net/sampling/1.0">
+                                <gml:Point xmlns:gml="http://www.opengis.net/gml">
+                                    <gml:pos xmlns:gml="http://www.opengis.net/gml" srsName="urn:ogc:def:crs:EPSG:4326">41.95300942516455 -7.439187194446438</gml:pos>
+                                </gml:Point>
+                            </sa:position>
+                        </sa:SamplingPoint>
+                    </gml:featureMember>
+                </gml:FeatureCollection>
+            </om:featureOfInterest>
+            <om:result xmlns:om="http://www.opengis.net/om/1.0">
+                <swe:DataArray xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                    <swe:elementCount xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                        <swe:Count xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                            <swe:value xmlns:swe="http://www.opengis.net/swe/1.0.1">1</swe:value>
+                        </swe:Count>
+                    </swe:elementCount>
+                    <swe:elementType xmlns:swe="http://www.opengis.net/swe/1.0.1" name="Components">
+                        <swe:SimpleDataRecord xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                            <swe:field xmlns:swe="http://www.opengis.net/swe/1.0.1" name="Time">
+                                <swe:Time xmlns:swe="http://www.opengis.net/swe/1.0.1" definition="urn:ogc:data:time:iso8601"/>
+                            </swe:field>
+                            <swe:field xmlns:swe="http://www.opengis.net/swe/1.0.1" name="feature">
+                                <swe:Text xmlns:swe="http://www.opengis.net/swe/1.0.1" definition="urn:ogc:data:feature"/>
+                            </swe:field>
+                            <swe:field xmlns:swe="http://www.opengis.net/swe/1.0.1" name="tmin">
+                                <swe:Quantity xmlns:swe="http://www.opengis.net/swe/1.0.1" definition="tmin">
+                                    <swe:uom xmlns:swe="http://www.opengis.net/swe/1.0.1" code="ºC"/>
+                                </swe:Quantity>
+                            </swe:field>
+                        </swe:SimpleDataRecord>
+                    </swe:elementType>
+                    <swe:encoding xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                        <swe:TextBlock xmlns:swe="http://www.opengis.net/swe/1.0.1" tokenSeparator="," decimalSeparator="." blockSeparator=";"/>
+                    </swe:encoding>
+                    <swe:values xmlns:swe="http://www.opengis.net/swe/1.0.1">2015-01-28T20:40:00.000,meteoroloxicas_Vilela-A_10500,7.06;</swe:values>
+                </swe:DataArray>
+            </om:result>
+        </om:Observation>
+    </om:member>
+</om:ObservationCollection>
+

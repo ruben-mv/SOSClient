@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/plugins/SOSClient">
+        <file>icon.png</file>
+        <file>coordinate_capture.png</file>
+        <file>icon_plot.png</file>
+        <file>icon_add.png</file>
+        <file>icon_xml.png</file>
+    </qresource>
+</RCC>

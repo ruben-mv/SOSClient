@@ -1,0 +1,50 @@
+# This file contains metadata for your plugin. Since 
+# version 2.0 of QGIS this is the proper way to supply 
+# information about a plugin. The old method of 
+# embedding metadata in __init__.py will 
+# is no longer supported since version 2.0.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=SOS Client
+qgisMinimumVersion=2.4
+description=OGC Sensor Observation Sensor Client
+version=0.5
+author=Rubén Mosquera Varela
+email=ruben.mosquera.varela@gmail.com
+
+# End of mandatory metadata
+
+# Optional items:
+
+# Uncomment the following line and add your changelog:
+changelog=
+	- 0.5
+	· Primera beta completa, con errores conocidos y sin documentar
+	- 0.4
+	· Refactorización completa.
+	· Adaptación a la versión 2.6.0 de Plugin Builder.
+	- 0.3
+	· Procesado de ObservationCollections.
+	· Visualización de gráficos básicos (beta).
+	- 0.2
+	· Peticións básicas de observacións
+	· Visualización dos datos xeográficos referidos as observacións
+	- 0.1
+	· Xestión de conexións
+	· Descarga e procesamento básico do capabilities document
+
+# Tags are comma separated with spaces allowed
+tags=OGC,SOS,Sensor,Observations
+
+homepage=
+tracker=
+repository=
+icon=ui/icon.png
+# experimental flag
+experimental=True
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+

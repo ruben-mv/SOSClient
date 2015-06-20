@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<om:ObservationCollection xmlns:om="http://www.opengis.net/om/1.0" xsi:schemaLocation="http://www.opengis.net/om/1.0 http://schemas.opengis.net/om/1.0.0/om.xsd http://www.citius.usc.es/cograde/sosdf/sampling/1.0 http://localhost:8080/52nSOSv1/schemas/sampling.xsd http://www.opengis.net/sampling/1.0 http://schemas.opengis.net/sampling/1.0.0/sampling.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="oc_0" xmlns:gml="http://www.opengis.net/gml">
+    <gml:boundedBy xmlns:gml="http://www.opengis.net/gml">
+        <gml:Envelope xmlns:gml="http://www.opengis.net/gml" srsName="urn:ogc:def:crs:EPSG:4326">
+            <gml:lowerCorner xmlns:gml="http://www.opengis.net/gml">42.18166667 -8.98</gml:lowerCorner>
+            <gml:upperCorner xmlns:gml="http://www.opengis.net/gml">43.415556 -8.229027778</gml:upperCorner>
+        </gml:Envelope>
+    </gml:boundedBy>
+    <om:member xmlns:om="http://www.opengis.net/om/1.0">
+        <om:Observation xmlns:om="http://www.opengis.net/om/1.0" gml:id="ctd_observations" xmlns:gml="http://www.opengis.net/gml">
+            <om:samplingTime xmlns:om="http://www.opengis.net/om/1.0">
+                <gml:TimePeriod xmlns:gml="http://www.opengis.net/gml" xsi:type="gml:TimePeriodType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <gml:beginPosition xmlns:gml="http://www.opengis.net/gml">2015-01-13T08:03:00.000</gml:beginPosition>
+                    <gml:endPosition xmlns:gml="http://www.opengis.net/gml">2015-01-20T10:01:00.000</gml:endPosition>
+                </gml:TimePeriod>
+            </om:samplingTime>
+            <om:procedure xmlns:om="http://www.opengis.net/om/1.0" xlink:href="ctd_0052_201210_12" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            <om:observedProperty xmlns:om="http://www.opengis.net/om/1.0">
+                <swe:CompositePhenomenon xmlns:swe="http://www.opengis.net/swe/1.0.1" dimension="2" gml:id="cpid0" xmlns:gml="http://www.opengis.net/gml">
+                    <gml:name xmlns:gml="http://www.opengis.net/gml">resultComponents</gml:name>
+                    <swe:component xmlns:swe="http://www.opengis.net/swe/1.0.1" xlink:href="urn:ogc:data:time:iso8601" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <swe:component xmlns:swe="http://www.opengis.net/swe/1.0.1" xlink:href="Temperatura" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <swe:component xmlns:swe="http://www.opengis.net/swe/1.0.1" xlink:href="Salinidade" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                </swe:CompositePhenomenon>
+            </om:observedProperty>
+            <om:featureOfInterest xmlns:om="http://www.opengis.net/om/1.0">
+                <gml:FeatureCollection xmlns:gml="http://www.opengis.net/gml">
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Rande_3" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Chapela_4" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Moaña_2" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Estacion Fija_7" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Samil_43" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Liméns_1" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Ons_19" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Boca de Arousa_29" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Aguiño_28" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Meloxo_27" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_O Grove_26" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Xidoiros_23" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Canal Central_30" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Cabío_20" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Cabo de Cruz_21" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Vilanova_24" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Rianxo_22" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Vilagarcía_25" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Boca Norte Pontevedra_13" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Festiñanzo_17" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Raxó_11" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Tambo_14" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Combarro_18" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Bueu_10" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Cabalo de Bueu_16" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Boca Sur Pontevedra_12" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Aldán Interior_15" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Aldán_9" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Boca Norte Vigo_6" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Boca Sur Vigo_5" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                </gml:FeatureCollection>
+            </om:featureOfInterest>
+            <om:result xmlns:om="http://www.opengis.net/om/1.0">
+                <swe:DataArray xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                    <swe:elementCount xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                        <swe:Count xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                            <swe:value xmlns:swe="http://www.opengis.net/swe/1.0.1">36</swe:value>
+                        </swe:Count>
+                    </swe:elementCount>
+                    <swe:elementType xmlns:swe="http://www.opengis.net/swe/1.0.1" name="Components">
+                        <swe:SimpleDataRecord xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                            <swe:field xmlns:swe="http://www.opengis.net/swe/1.0.1" name="Time">
+                                <swe:Time xmlns:swe="http://www.opengis.net/swe/1.0.1" definition="urn:ogc:data:time:iso8601"/>
+                            </swe:field>
+                            <swe:field xmlns:swe="http://www.opengis.net/swe/1.0.1" name="feature">
+                                <swe:Text xmlns:swe="http://www.opengis.net/swe/1.0.1" definition="urn:ogc:data:feature"/>
+                            </swe:field>
+                            <swe:field xmlns:swe="http://www.opengis.net/swe/1.0.1" name="Temperatura">
+                                <swe:Quantity xmlns:swe="http://www.opengis.net/swe/1.0.1" definition="Temperatura">
+                                    <swe:uom xmlns:swe="http://www.opengis.net/swe/1.0.1" code="ºC"/>
+                                </swe:Quantity>
+                            </swe:field>
+                            <swe:field xmlns:swe="http://www.opengis.net/swe/1.0.1" name="Salinidade">
+                                <swe:Quantity xmlns:swe="http://www.opengis.net/swe/1.0.1" definition="Salinidade">
+                                    <swe:uom xmlns:swe="http://www.opengis.net/swe/1.0.1" code="g/L o %"/>
+                                </swe:Quantity>
+                            </swe:field>
+                        </swe:SimpleDataRecord>
+                    </swe:elementType>
+                    <swe:encoding xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                        <swe:TextBlock xmlns:swe="http://www.opengis.net/swe/1.0.1" tokenSeparator="," decimalSeparator="." blockSeparator=";"/>
+                    </swe:encoding>
+                    <swe:values xmlns:swe="http://www.opengis.net/swe/1.0.1">2015-01-13T08:03:00.000,ctd_Rande_3,11.9869,34.6467;2015-01-13T08:21:00.000,ctd_Chapela_4,12.115,34.9741;2015-01-13T08:34:00.000,ctd_Moaña_2,11.995,34.9427;2015-01-13T08:59:00.000,ctd_Estacion Fija_7,12.506,35.1543;2015-01-13T09:14:00.000,ctd_Samil_43,12.7542,35.2019;2015-01-13T09:29:00.000,ctd_Liméns_1,12.6525,35.2642;2015-01-19T08:11:00.000,ctd_Ons_19,11.9843,34.6273;2015-01-19T08:55:00.000,ctd_Boca de Arousa_29,11.2543,33.2572;2015-01-19T09:13:00.000,ctd_Aguiño_28,11.1072,31.6514;2015-01-19T09:34:00.000,ctd_Meloxo_27,11.9192,34.6631;2015-01-19T09:56:00.000,ctd_O Grove_26,11.3567,33.0736;2015-01-19T10:28:00.000,ctd_Xidoiros_23,11.5516,33.2286;2015-01-19T10:37:00.000,ctd_Canal Central_30,11.585,32.701;2015-01-19T10:45:00.000,ctd_Cabío_20,10.7896,30.059;2015-01-19T11:01:00.000,ctd_Cabo de Cruz_21,10.6819,30.5493;2015-01-19T11:27:00.000,ctd_Vilanova_24,11.0436,31.332;2015-01-19T11:46:00.000,ctd_Rianxo_22,11.1028,29.478;2015-01-19T11:56:00.000,ctd_Vilagarcía_25,11.0727,29.995;2015-01-19T14:12:00.000,ctd_Boca Norte Pontevedra_13,12.0496,34.5305;2015-01-19T14:48:00.000,ctd_Festiñanzo_17,11.5283,33.7587;2015-01-19T15:01:00.000,ctd_Raxó_11,11.669,32.4074;2015-01-19T15:08:00.000,ctd_Tambo_14,11.7963,32.5513;2015-01-19T15:18:00.000,ctd_Combarro_18,11.7215,33.3675;2015-01-19T15:51:00.000,ctd_Bueu_10,11.9567,34.3095;2015-01-19T16:04:00.000,ctd_Cabalo de Bueu_16,12.1031,34.4526;2015-01-19T16:25:00.000,ctd_Boca Sur Pontevedra_12,12.1189,34.2721;2015-01-19T16:54:00.000,ctd_Aldán Interior_15,11.7623,34.3125;2015-01-19T17:08:00.000,ctd_Aldán_9,12.1614,34.5377;2015-01-20T08:02:00.000,ctd_Rande_3,10.6015,28.2391;2015-01-20T08:19:00.000,ctd_Chapela_4,11.4137,32.0084;2015-01-20T08:32:00.000,ctd_Moaña_2,11.2946,32.3035;2015-01-20T08:55:00.000,ctd_Estacion Fija_7,11.0448,32.594;2015-01-20T09:07:00.000,ctd_Samil_43,11.7734,33.9055;2015-01-20T09:23:00.000,ctd_Liméns_1,11.4385,33.6147;2015-01-20T09:40:00.000,ctd_Boca Norte Vigo_6,11.5489,33.8772;2015-01-20T10:01:00.000,ctd_Boca Sur Vigo_5,11.948,34.3263;</swe:values>
+                </swe:DataArray>
+            </om:result>
+        </om:Observation>
+    </om:member>
+    <om:member xmlns:om="http://www.opengis.net/om/1.0">
+        <om:Observation xmlns:om="http://www.opengis.net/om/1.0" gml:id="ctd_observations" xmlns:gml="http://www.opengis.net/gml">
+            <om:samplingTime xmlns:om="http://www.opengis.net/om/1.0">
+                <gml:TimePeriod xmlns:gml="http://www.opengis.net/gml" xsi:type="gml:TimePeriodType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <gml:beginPosition xmlns:gml="http://www.opengis.net/gml">2015-01-19T09:09:00.000</gml:beginPosition>
+                    <gml:endPosition xmlns:gml="http://www.opengis.net/gml">2015-01-26T09:51:00.000</gml:endPosition>
+                </gml:TimePeriod>
+            </om:samplingTime>
+            <om:procedure xmlns:om="http://www.opengis.net/om/1.0" xlink:href="ctd_0438_201107_8" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            <om:observedProperty xmlns:om="http://www.opengis.net/om/1.0">
+                <swe:CompositePhenomenon xmlns:swe="http://www.opengis.net/swe/1.0.1" dimension="2" gml:id="cpid1" xmlns:gml="http://www.opengis.net/gml">
+                    <gml:name xmlns:gml="http://www.opengis.net/gml">resultComponents</gml:name>
+                    <swe:component xmlns:swe="http://www.opengis.net/swe/1.0.1" xlink:href="urn:ogc:data:time:iso8601" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <swe:component xmlns:swe="http://www.opengis.net/swe/1.0.1" xlink:href="Temperatura" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <swe:component xmlns:swe="http://www.opengis.net/swe/1.0.1" xlink:href="Salinidade" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                </swe:CompositePhenomenon>
+            </om:observedProperty>
+            <om:featureOfInterest xmlns:om="http://www.opengis.net/om/1.0">
+                <gml:FeatureCollection xmlns:gml="http://www.opengis.net/gml">
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Lorbé_39" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Arnela_40" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Sada_41" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                    <gml:featureMember xmlns:gml="http://www.opengis.net/gml" xlink:href="ctd_Ares_42" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+                </gml:FeatureCollection>
+            </om:featureOfInterest>
+            <om:result xmlns:om="http://www.opengis.net/om/1.0">
+                <swe:DataArray xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                    <swe:elementCount xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                        <swe:Count xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                            <swe:value xmlns:swe="http://www.opengis.net/swe/1.0.1">8</swe:value>
+                        </swe:Count>
+                    </swe:elementCount>
+                    <swe:elementType xmlns:swe="http://www.opengis.net/swe/1.0.1" name="Components">
+                        <swe:SimpleDataRecord xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                            <swe:field xmlns:swe="http://www.opengis.net/swe/1.0.1" name="Time">
+                                <swe:Time xmlns:swe="http://www.opengis.net/swe/1.0.1" definition="urn:ogc:data:time:iso8601"/>
+                            </swe:field>
+                            <swe:field xmlns:swe="http://www.opengis.net/swe/1.0.1" name="feature">
+                                <swe:Text xmlns:swe="http://www.opengis.net/swe/1.0.1" definition="urn:ogc:data:feature"/>
+                            </swe:field>
+                            <swe:field xmlns:swe="http://www.opengis.net/swe/1.0.1" name="Temperatura">
+                                <swe:Quantity xmlns:swe="http://www.opengis.net/swe/1.0.1" definition="Temperatura">
+                                    <swe:uom xmlns:swe="http://www.opengis.net/swe/1.0.1" code="ºC"/>
+                                </swe:Quantity>
+                            </swe:field>
+                            <swe:field xmlns:swe="http://www.opengis.net/swe/1.0.1" name="Salinidade">
+                                <swe:Quantity xmlns:swe="http://www.opengis.net/swe/1.0.1" definition="Salinidade">
+                                    <swe:uom xmlns:swe="http://www.opengis.net/swe/1.0.1" code="g/L o %"/>
+                                </swe:Quantity>
+                            </swe:field>
+                        </swe:SimpleDataRecord>
+                    </swe:elementType>
+                    <swe:encoding xmlns:swe="http://www.opengis.net/swe/1.0.1">
+                        <swe:TextBlock xmlns:swe="http://www.opengis.net/swe/1.0.1" tokenSeparator="," decimalSeparator="." blockSeparator=";"/>
+                    </swe:encoding>
+                    <swe:values xmlns:swe="http://www.opengis.net/swe/1.0.1">2015-01-19T09:09:00.000,ctd_Lorbé_39,11.8388,33.6369;2015-01-19T09:28:00.000,ctd_Arnela_40,12.1791,33.6986;2015-01-19T09:42:00.000,ctd_Sada_41,11.4642,31.2634;2015-01-19T10:10:00.000,ctd_Ares_42,11.6315,32.3099;2015-01-26T09:11:00.000,ctd_Sada_41,11.6347,30.0022;2015-01-26T09:21:00.000,ctd_Arnela_40,12.3053,33.3638;2015-01-26T09:35:00.000,ctd_Lorbé_39,12.0782,33.8029;2015-01-26T09:51:00.000,ctd_Ares_42,11.724,30.4647;</swe:values>
+                </swe:DataArray>
+            </om:result>
+        </om:Observation>
+    </om:member>
+</om:ObservationCollection>
+

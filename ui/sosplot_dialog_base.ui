@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SosPlotDialog</class>
+ <widget class="QDialog" name="SosPlotDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>808</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string notr="true"/>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <widget class="QSplitter" name="splitter_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QWidget" name="layoutWidget">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QFrame" name="general">
+          <layout class="QFormLayout" name="formLayout">
+           <property name="fieldGrowthPolicy">
+            <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="lblTitle">
+             <property name="text">
+              <string>Title</string>
+             </property>
+             <property name="buddy">
+              <cstring>title</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="title"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="lblLegend">
+             <property name="text">
+              <string>Legend</string>
+             </property>
+             <property name="buddy">
+              <cstring>legendChk</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <layout class="QHBoxLayout" name="layLegend">
+             <item>
+              <widget class="QCheckBox" name="legendChk">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="legendPos">
+               <item>
+                <property name="text">
+                 <string>best</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>upper right</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>upper left</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>lower left</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>lower right</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>right</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>center left</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>center right</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>lower center</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>upper center</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>center</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="legendCols">
+               <property name="suffix">
+                <string> columns</string>
+               </property>
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>6</number>
+               </property>
+               <property name="value">
+                <number>1</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Time format</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="lblGrid">
+             <property name="text">
+              <string>Grid</string>
+             </property>
+             <property name="buddy">
+              <cstring>gridChk</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QCheckBox" name="gridChk">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblSort">
+               <property name="text">
+                <string>Data sorted by</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <property name="buddy">
+                <cstring>xSorted</cstring>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="xSorted">
+               <property name="text">
+                <string>X-Axis</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="ySorted">
+               <property name="text">
+                <string>Y-Axis</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="timeFormat"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="xAxis">
+          <property name="title">
+           <string>X-Axis</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout_2">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="lblxProperty">
+             <property name="text">
+              <string>Property</string>
+             </property>
+             <property name="buddy">
+              <cstring>xProperty</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="xProperty"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="lblxLabel">
+             <property name="text">
+              <string>Label</string>
+             </property>
+             <property name="buddy">
+              <cstring>xLabel</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="xLabel"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="lblxRange">
+             <property name="text">
+              <string>Range</string>
+             </property>
+             <property name="buddy">
+              <cstring>xMinTime</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="0" column="1">
+              <widget class="QDoubleSpinBox" name="xMaxFloat"/>
+             </item>
+             <item row="0" column="0">
+              <widget class="QDoubleSpinBox" name="xMinFloat"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QDateTimeEdit" name="xMinTime"/>
+             </item>
+             <item row="1" column="1">
+              <widget class="QDateTimeEdit" name="xMaxTime"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="yAxis">
+          <property name="title">
+           <string>Y-Axis</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout_3">
+           <property name="fieldGrowthPolicy">
+            <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="lblyProperty">
+             <property name="text">
+              <string>Property</string>
+             </property>
+             <property name="buddy">
+              <cstring>yProperty</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="yProperty"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="lblyLabel">
+             <property name="text">
+              <string>Label</string>
+             </property>
+             <property name="buddy">
+              <cstring>yLabel</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="yLabel"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="lblyRange">
+             <property name="text">
+              <string>Range</string>
+             </property>
+             <property name="buddy">
+              <cstring>yMinFloat</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <layout class="QGridLayout" name="gridLayout_3">
+             <item row="0" column="1">
+              <widget class="QDoubleSpinBox" name="yMaxFloat"/>
+             </item>
+             <item row="0" column="0">
+              <widget class="QDoubleSpinBox" name="yMinFloat"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QDateTimeEdit" name="yMinTime"/>
+             </item>
+             <item row="1" column="1">
+              <widget class="QDateTimeEdit" name="yMaxTime"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>13</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="grpDefault">
+          <property name="title">
+           <string>Default values</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <layout class="QFormLayout" name="formLayout_4">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lblDefaultLine">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Line</string>
+               </property>
+               <property name="buddy">
+                <cstring>lineStyle</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QComboBox" name="lineStyle"/>
+               </item>
+               <item>
+                <widget class="QDoubleSpinBox" name="lineWidth"/>
+               </item>
+              </layout>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="lblDefaultMarker">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Marker</string>
+               </property>
+               <property name="buddy">
+                <cstring>marker</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QComboBox" name="marker"/>
+               </item>
+               <item>
+                <widget class="QDoubleSpinBox" name="markerSize"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QDialogButtonBox" name="defaultStyle">
+             <property name="standardButtons">
+              <set>QDialogButtonBox::Apply|QDialogButtonBox::Reset</set>
+             </property>
+             <property name="centerButtons">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QMplWidget" name="plotWidget" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QTableView" name="stylesTable">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QMplWidget</class>
+   <extends>QWidget</extends>
+   <header>SOSClient.ui.utils</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>title</tabstop>
+  <tabstop>legendChk</tabstop>
+  <tabstop>legendPos</tabstop>
+  <tabstop>legendCols</tabstop>
+  <tabstop>gridChk</tabstop>
+  <tabstop>xSorted</tabstop>
+  <tabstop>ySorted</tabstop>
+  <tabstop>timeFormat</tabstop>
+  <tabstop>xProperty</tabstop>
+  <tabstop>xLabel</tabstop>
+  <tabstop>xMinFloat</tabstop>
+  <tabstop>xMaxFloat</tabstop>
+  <tabstop>xMinTime</tabstop>
+  <tabstop>xMaxTime</tabstop>
+  <tabstop>yProperty</tabstop>
+  <tabstop>yLabel</tabstop>
+  <tabstop>yMinFloat</tabstop>
+  <tabstop>yMaxFloat</tabstop>
+  <tabstop>yMinTime</tabstop>
+  <tabstop>yMaxTime</tabstop>
+  <tabstop>lineStyle</tabstop>
+  <tabstop>lineWidth</tabstop>
+  <tabstop>marker</tabstop>
+  <tabstop>markerSize</tabstop>
+  <tabstop>defaultStyle</tabstop>
+  <tabstop>stylesTable</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
