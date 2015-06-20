@@ -9,7 +9,7 @@
 [general]
 name=SOS Client
 qgisMinimumVersion=2.4
-description=OGC Sensor Observation Sensor Client
+description=OGC Sensor Observation Service Client
 version=0.5
 author=Rubén Mosquera Varela
 email=ruben.mosquera.varela@gmail.com
