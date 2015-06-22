@@ -1,19 +1,20 @@
-.. SOSClient documentation master file, created by
-   sphinx-quickstart on Sat Jun 20 11:53:44 2015.
+.. QGIS SOS Client plugin documentation master file, created by
+   sphinx-quickstart on Sat Jun 20 13:55:16 2015.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to SOSClient's documentation!
-=====================================
+Documentación do plugin SOS Client para QGIS
+============================================
 
-Contents:
+Contido:
 
 .. toctree::
    :maxdepth: 2
+   
+   user-help
+   dev-help
 
-
-
-Indices and tables
+Índices e táboas
 ==================
 
 * :ref:`genindex`

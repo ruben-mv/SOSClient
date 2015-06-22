@@ -50,7 +50,6 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'SOSClient'
-copyright = u'2015, Rubén Mosquera Varela'  # @ReservedAssignment
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -88,7 +87,7 @@ exclude_patterns = []
 
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
-#show_authors = False
+show_authors = True
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -110,11 +109,13 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-                      'logo' : '',
+                      'logo' : 'sosclient.png',
                       'logo_name' : True,
+                      'description' : 'QGIS SOS Client plugin',
                       'github_user' : 'ruben-mv',
                       'github_repo' : 'SOSClient',
                       'show_powered_by' : False,
+                      'show_related' : True
                       }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -134,7 +135,7 @@ html_theme_path = [alabaster.get_path()]
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-#html_favicon = None
+html_favicon = '_static/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -159,9 +160,10 @@ html_sidebars = {
     '**': [
         'about.html',
         'navigation.html',
+        'relations.html',
+        'searchbox.html',
     ]
 }
-
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
@@ -177,13 +179,13 @@ html_sidebars = {
 #html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-#html_show_sourcelink = True
+html_show_sourcelink = False
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
-#html_show_sphinx = True
+html_show_sphinx = False
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
-#html_show_copyright = True
+html_show_copyright = False
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the

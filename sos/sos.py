@@ -7,7 +7,9 @@
         copyright            : (C) 2014 by Rubén Mosquera Varela
         email                : ruben.mosquera.varela@gmail.com
  ***************************************************************************/
-
+@author: Rubén Mosquera Varela
+@contact: ruben.mosquera.varela@gmail.com
+@copyright:
 /***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -98,7 +100,7 @@ class SensorObservationService (QObject):
     def getObservationsUrl (self):
         try:
             url = QUrl(self.operationsMetadata['GetObservation'].methods['Post'])
-            #TODO: Para servidores mal configurados
+            #Para servidores mal configurados
             if url.host() == 'localhost':
                 url.setHost (self.url.host())
                 url.setPort (self.url.port())
@@ -143,10 +145,6 @@ class SensorObservationService (QObject):
             return []
 
     def __getitem__(self, offer):
-        '''
-        Acceder a los offerings con []
-        :param offer: str
-        '''
         if offer in self._capabilities.observationOfferingList.keys():
             return self._capabilities.observationOfferingList[offer]
         else:
@@ -464,9 +462,6 @@ class FilterRequest (object):
 
         
 class ExceptionReport(Exception):
-    '''
-    OWS ExceptionReport
-    '''
     def __init__(self, exceptionCode, exceptionText):
         self.__exceptionCode = exceptionCode
         self.__exceptionText = exceptionText
@@ -661,24 +656,5 @@ class ObservationsLayer (QObject):
         
         return layer
 
-    def toVectorLayer_csv (self):
-        crs = QgsCoordinateReferenceSystem()
-        crs.createFromUserInput(self.provider.srsName)
-        
-        fileName = self.xmlFile.replace(".xml", ".csv")
-        fields = QgsFields ()
-        map (fields.append, self.provider.fields)
-        writer = QgsVectorFileWriter (fileName, "utf-8", fields, QGis.WKBPoint, crs, "CSV", [], ['GEOMETRY=AS_XY'])
-
-        if writer.hasError() != QgsVectorFileWriter.NoError:
-            raise Exception (writer.errorMessage())
-        
-        for feature in self.provider.getFeatures():
-            self.features.append(feature)
-            writer.addFeature(feature)
-        
-        del writer #Forzar escritura a disco
-        return QgsVectorLayer("file:///" + fileName + "?type=csv&delimiter=,xField=X&yField=Y&spatialIndex=yes&subsetIndex=no&watchFile=no&crs=" + crs.authid(), self.name, "delimitedtext")
-                
     def __str__(self):
         return self.provider.getObservation()

@@ -1,19 +1,26 @@
 # -*- coding: utf-8 -*-
-'''
-Created on 25 Abr, 2015
-
-@author: ruben
-'''
-
+"""
+@author: Rubén Mosquera Varela
+@contact: ruben.mosquera.varela@gmail.com
+@copyright:
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+"""
 from PyQt4 import QtGui
 from PyQt4.QtXml import QDomDocument
 from PyQt4.QtCore import QFile
 from utils import WidgetFactory, XmlModel
 
 class XmlViewerDialog (QtGui.QDialog, WidgetFactory.getClass("xmlviewer_dialog")):
-    '''
-    classdocs
-    '''
+    """
+    Dialog for show XML as tree and as indented text with highlight
+    """
 
     def __init__(self, parent=None, xml='', highlighterClass = None):
         '''

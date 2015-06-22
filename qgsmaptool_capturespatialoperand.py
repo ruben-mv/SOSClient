@@ -1,25 +1,31 @@
 # -*- coding: utf-8 -*-
-'''
-Created on 21 Feb, 2015
-
-@author: ruben
-'''
+"""
+@author: Rubén Mosquera Varela
+@contact: ruben.mosquera.varela@gmail.com
+@copyright:
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+"""
 
 from qgis.gui import QgsMapTool, QgsRubberBand, QgsVertexMarker
 from qgis.core import QGis, QgsGeometry, QgsPoint, QgsCoordinateTransform, QgsCoordinateReferenceSystem
 from PyQt4 import QtCore, QtGui
 
 class QgsMapToolCaptureSpatialOperand (QgsMapTool):
+    """
+    QGIS map tool. Draw a point, line, polygon or bounding box
+    and convert it to WKT format.
+    """
     
     selectionFinished = QtCore.pyqtSignal(str)
     
-    '''
-    classdocs
-    '''
     def __init__(self, canvas, gmlOperand = "gml:Envelope", srsName="", parent = None):
-        '''
-        Constructor
-        '''
         QgsMapTool.__init__ (self, canvas)
         self.canvas = canvas
         self.parent = parent

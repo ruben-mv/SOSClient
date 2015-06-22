@@ -1,4 +1,17 @@
 # -*- coding: utf-8 -*-
+"""
+@author: Rubén Mosquera Varela
+@contact: ruben.mosquera.varela@gmail.com
+@copyright:
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+"""
 
 from PyQt4 import QtGui, QtCore
 from qgis.core import QgsVectorLayer, QgsFeatureRequest
@@ -14,7 +27,16 @@ import sys
 maxFloat = sys.float_info.max
 
 class SOSPlotDialog(QtGui.QDialog, WidgetFactory.getClass('sosplot_dialog')):
+    """
+    SOS Client dialog for plot observation data
+    """
     def __init__(self, layer, parent=None):
+        """Constructor
+        :param layer: QGIS layer with selected entities
+        :type layer: QgsVectorLayer
+        :param parent: Parent object
+        :type parent: QWidget
+        """
         super(SOSPlotDialog, self).__init__(parent)
         # Set up the user interface from Designer.
         self.layer = layer

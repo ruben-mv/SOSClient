@@ -19,7 +19,7 @@
     <message>
         <location filename="xmlviewer_dialog_base.ui" line="27"/>
         <source>Raw</source>
-        <translation>Crú</translation>
+        <translation>Cru</translation>
     </message>
     <message>
         <location filename="xmlviewer_dialog_base.ui" line="37"/>
@@ -30,7 +30,7 @@
 <context>
     <name>ObservationsLayer</name>
     <message>
-        <location filename="sos.py" line="623"/>
+        <location filename="sos.py" line="619"/>
         <source>Invalid layer</source>
         <translation>Capa non válida</translation>
     </message>
@@ -38,124 +38,141 @@
 <context>
     <name>SOSClient</name>
     <message>
-        <location filename="sos_client.py" line="74"/>
+        <location filename="sos_client.py" line="75"/>
         <source>&amp;SOS Client</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;SOS Client</translation>
     </message>
     <message>
-        <location filename="sos_client.py" line="167"/>
+        <location filename="sos_client.py" line="236"/>
         <source>SOS Client</source>
-        <translation type="unfinished"></translation>
+        <translation>SOS Client</translation>
     </message>
     <message>
-        <location filename="sos_client.py" line="173"/>
+        <location filename="sos_client.py" line="174"/>
         <source>Show XML</source>
-        <translation type="unfinished">Ver XML</translation>
+        <translation>Ver XML</translation>
     </message>
     <message>
-        <location filename="sos_client.py" line="180"/>
+        <location filename="sos_client.py" line="181"/>
         <source>Plot</source>
-        <translation type="unfinished"></translation>
+        <translation>Trazar</translation>
     </message>
     <message>
-        <location filename="sos_client.py" line="187"/>
+        <location filename="sos_client.py" line="188"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>A cerca de</translation>
     </message>
     <message>
-        <location filename="sos_client.py" line="237"/>
+        <location filename="sos_client.py" line="219"/>
+        <source>You must select a layer</source>
+        <translation>Debe selecionar unha capa</translation>
+    </message>
+    <message>
+        <location filename="sos_client.py" line="228"/>
+        <source>Layer have not a xml property</source>
+        <translation>A capa non ten unha propiedade xml</translation>
+    </message>
+    <message>
+        <location filename="sos_client.py" line="240"/>
         <source>About SOS Client</source>
-        <translation type="unfinished"></translation>
+        <translation>A cerca do SOS Client</translation>
     </message>
     <message>
-        <location filename="sos_client.py" line="237"/>
-        <source>Python QuickWKT Plugin&lt;br /&gt;This plugin creates a set of temporary layers and populates them with WKT features that you can paste in a dialog window.&lt;br /&gt;&lt;strong&gt;All layers created by this plugins are temporary layers, all data will be lost when you quit QGIS.&lt;/strong&gt;&lt;br /&gt;Author: Alessandro Pasotti (aka: elpaso)&lt;br /&gt;Mail: &lt;a href=&quot;mailto:info@itopen.it&quot;&gt;info@itopen.it&lt;/a&gt;&lt;br /&gt;Web: &lt;a href=&quot;http://www.itopen.it&quot;&gt;www.itopen.it&lt;/a&gt;
-</source>
-        <translation type="unfinished"></translation>
+        <location filename="sos_client.py" line="240"/>
+        <source>SOS Client Plugin&lt;br /&gt;This plugin request observations data from OGC SOS server to create a vector layer.&lt;br /&gt;Also provides tools to plot observations data&lt;br /&gt;&lt;br /&gt;Author: RubÃ©n Mosquera Varela&lt;br /&gt;E-mail: &lt;a href=&quot;mailto:ruben.mosquera.varela@gmail.com&quot;&gt;ruben.mosquera.varela@gmail.com&lt;/a&gt;</source>
+        <translation>SOS Client Plugin&lt;br /&gt;Este plugin obtén datos dende servidores SOS OGC para crear unha capa vectorial.&lt;br /&gt;Tamén permite visualizar gráficamente os datos das observacións.&lt;br /&gt;&lt;br /&gt;Autor: Rubén Mosquera Varela&lt;br /&gt;E-mail: &lt;a href=&quot;mailto:ruben.mosquera.varela@gmail.com&quot;&gt;ruben.mosquera.varela@gmail.com&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
     <name>SOSClientDialog</name>
     <message>
-        <location filename="sos_client_dialog.py" line="162"/>
+        <location filename="sos_client_dialog.py" line="173"/>
         <source>Connecting to {url}</source>
         <translation>Conectando a {url}</translation>
     </message>
     <message>
-        <location filename="sos_client_dialog.py" line="170"/>
+        <location filename="sos_client_dialog.py" line="181"/>
         <source>Create a new SOS connection</source>
         <translation>Crear unha nova conexión SOS</translation>
     </message>
     <message>
-        <location filename="sos_client_dialog.py" line="177"/>
+        <location filename="sos_client_dialog.py" line="188"/>
         <source>Modify SOS connection</source>
         <translation>Modificar a conexión SOS</translation>
     </message>
     <message>
-        <location filename="sos_client_dialog.py" line="183"/>
+        <location filename="sos_client_dialog.py" line="194"/>
         <source>Are you sure you want to remove the %s connection and all associated settings?</source>
         <translation>¿Está seguro de querer elimina-la conexión %s e tódolos axustes asociados?</translation>
     </message>
     <message>
-        <location filename="sos_client_dialog.py" line="184"/>
+        <location filename="sos_client_dialog.py" line="195"/>
         <source>Confirm Delete</source>
         <translation>Confirmar eliminación</translation>
     </message>
     <message>
-        <location filename="sos_client_dialog.py" line="229"/>
-        <source>Warning</source>
-        <translation>Aviso</translation>
-    </message>
-    <message>
-        <location filename="sos_client_dialog.py" line="242"/>
+        <location filename="sos_client_dialog.py" line="253"/>
         <source>Please wait while downloading</source>
         <translation>Por favor, agarde mentres se descarga</translation>
     </message>
     <message>
-        <location filename="sos_client_dialog.py" line="245"/>
+        <location filename="sos_client_dialog.py" line="256"/>
         <source>%v bytes downloaded!</source>
         <translation>%v bytes descargados!</translation>
     </message>
     <message>
-        <location filename="sos_client_dialog.py" line="257"/>
+        <location filename="sos_client_dialog.py" line="268"/>
         <source>Abort</source>
         <translation>Abortar</translation>
     </message>
     <message>
-        <location filename="sos_client_dialog.py" line="586"/>
+        <location filename="sos_client_dialog.py" line="593"/>
         <source>Show reply</source>
         <translation>Ver resposta</translation>
     </message>
     <message>
-        <location filename="sos_client_dialog.py" line="298"/>
+        <location filename="sos_client_dialog.py" line="309"/>
         <source>Capabilities downloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Capacidades descargadas</translation>
     </message>
     <message>
-        <location filename="sos_client_dialog.py" line="518"/>
+        <location filename="sos_client_dialog.py" line="525"/>
         <source>TimeManager plugin is not instaled</source>
         <translation>O engadido TimeManager non está instalado</translation>
     </message>
 </context>
 <context>
+    <name>SOSPlotDialog</name>
+    <message>
+        <location filename="sosplot_dialog.py" line="44"/>
+        <source>Selector layer isn&apos;t a vector layer</source>
+        <translation>A capa selecionada non é vectorial</translation>
+    </message>
+    <message>
+        <location filename="sosplot_dialog.py" line="48"/>
+        <source>No features selected</source>
+        <translation>Non hai entidades selecionadas</translation>
+    </message>
+</context>
+<context>
     <name>SOSServiceIdentification</name>
     <message>
-        <location filename="sos.py" line="322"/>
+        <location filename="sos.py" line="320"/>
         <source>Title</source>
         <translation>Título</translation>
     </message>
     <message>
-        <location filename="sos.py" line="322"/>
+        <location filename="sos.py" line="320"/>
         <source>Abstract</source>
         <translation>Resumo</translation>
     </message>
     <message>
-        <location filename="sos.py" line="322"/>
+        <location filename="sos.py" line="320"/>
         <source>Keywords</source>
         <translation>Palabras clave</translation>
     </message>
     <message>
-        <location filename="sos.py" line="322"/>
+        <location filename="sos.py" line="320"/>
         <source>Service</source>
         <translation>Servizo</translation>
     </message>
@@ -163,22 +180,22 @@
 <context>
     <name>SOSServiceProvider</name>
     <message>
-        <location filename="sos.py" line="346"/>
+        <location filename="sos.py" line="344"/>
         <source>Name</source>
         <translation>Nome</translation>
     </message>
     <message>
-        <location filename="sos.py" line="346"/>
+        <location filename="sos.py" line="344"/>
         <source>Site</source>
         <translation>Sitio</translation>
     </message>
     <message>
-        <location filename="sos.py" line="346"/>
+        <location filename="sos.py" line="344"/>
         <source>Phones</source>
         <translation>Teléfonos</translation>
     </message>
     <message>
-        <location filename="sos.py" line="346"/>
+        <location filename="sos.py" line="344"/>
         <source>Address</source>
         <translation>Enderezo</translation>
     </message>
@@ -186,12 +203,12 @@
 <context>
     <name>SensorObservationService</name>
     <message>
-        <location filename="sos.py" line="158"/>
+        <location filename="sos.py" line="156"/>
         <source>Identification</source>
         <translation>Identificación</translation>
     </message>
     <message>
-        <location filename="sos.py" line="158"/>
+        <location filename="sos.py" line="156"/>
         <source>Provider</source>
         <translation>Provedor</translation>
     </message>
@@ -261,12 +278,12 @@
     <message>
         <location filename="sos_client_dialog_base.ui" line="180"/>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Propiedades</translation>
     </message>
     <message>
         <location filename="sos_client_dialog_base.ui" line="861"/>
         <source>All</source>
-        <translation>Todos</translation>
+        <translation>Todo</translation>
     </message>
     <message>
         <location filename="sos_client_dialog_base.ui" line="839"/>
@@ -281,12 +298,12 @@
     <message>
         <location filename="sos_client_dialog_base.ui" line="231"/>
         <source>Features</source>
-        <translation type="unfinished"></translation>
+        <translation>Entidades</translation>
     </message>
     <message>
         <location filename="sos_client_dialog_base.ui" line="282"/>
         <source>Procedures</source>
-        <translation type="unfinished"></translation>
+        <translation>Procedementos</translation>
     </message>
     <message>
         <location filename="sos_client_dialog_base.ui" line="330"/>
@@ -296,12 +313,12 @@
     <message>
         <location filename="sos_client_dialog_base.ui" line="336"/>
         <source>Spatial</source>
-        <translation>Spacial</translation>
+        <translation>Espacial</translation>
     </message>
     <message>
         <location filename="sos_client_dialog_base.ui" line="368"/>
         <source>Spatial filter will be ignored while any feature is selected.</source>
-        <translation type="unfinished">O filtro espacial non será tido en conta mentres haxa algúnha feature seleccionada.</translation>
+        <translation>O filtro espacial non será tido en conta mentres haxa algúnha feature seleccionada.</translation>
     </message>
     <message>
         <location filename="sos_client_dialog_base.ui" line="535"/>
@@ -321,22 +338,22 @@
     <message>
         <location filename="sos_client_dialog_base.ui" line="515"/>
         <source>Scalar</source>
-        <translation></translation>
+        <translation>Escalar</translation>
     </message>
     <message>
         <location filename="sos_client_dialog_base.ui" line="587"/>
         <source>Result</source>
-        <translation type="unfinished"></translation>
+        <translation>Resultado</translation>
     </message>
     <message>
         <location filename="sos_client_dialog_base.ui" line="599"/>
         <source>Result model</source>
-        <translation type="unfinished"></translation>
+        <translation>Modelo de resultado</translation>
     </message>
     <message>
         <location filename="sos_client_dialog_base.ui" line="619"/>
         <source>Geometry data</source>
-        <translation>Información geográfica</translation>
+        <translation>Información geométrica</translation>
     </message>
     <message>
         <location filename="sos_client_dialog_base.ui" line="628"/>
@@ -421,7 +438,7 @@
     <message>
         <location filename="sos_client_dialog_base.ui" line="834"/>
         <source>Show XML data</source>
-        <translation>Ver datos XML</translation>
+        <translation>Ver información XML</translation>
     </message>
 </context>
 <context>
@@ -464,7 +481,7 @@
     <message>
         <location filename="sosplot_dialog_base.ui" line="119"/>
         <source>right</source>
-        <translation>dereita</translation>
+        <translation>dereira</translation>
     </message>
     <message>
         <location filename="sosplot_dialog_base.ui" line="124"/>
@@ -479,12 +496,12 @@
     <message>
         <location filename="sosplot_dialog_base.ui" line="134"/>
         <source>lower center</source>
-        <translation>centrado abaixo</translation>
+        <translation>abaixo centrado</translation>
     </message>
     <message>
         <location filename="sosplot_dialog_base.ui" line="139"/>
         <source>upper center</source>
-        <translation>centrado arriba</translation>
+        <translation>arriba centrado</translation>
     </message>
     <message>
         <location filename="sosplot_dialog_base.ui" line="144"/>
@@ -509,7 +526,7 @@
     <message>
         <location filename="sosplot_dialog_base.ui" line="199"/>
         <source>Data sorted by</source>
-        <translation>Datos ordenados por</translation>
+        <translation>Datos ordeados por</translation>
     </message>
     <message>
         <location filename="sosplot_dialog_base.ui" line="237"/>
@@ -555,37 +572,37 @@
 <context>
     <name>StylesTable</name>
     <message>
-        <location filename="sosplot_dialog.py" line="242"/>
+        <location filename="sosplot_dialog.py" line="264"/>
         <source>Name</source>
         <translation>Nome</translation>
     </message>
     <message>
-        <location filename="sosplot_dialog.py" line="243"/>
+        <location filename="sosplot_dialog.py" line="265"/>
         <source>Color</source>
         <translation>Color</translation>
     </message>
     <message>
-        <location filename="sosplot_dialog.py" line="244"/>
+        <location filename="sosplot_dialog.py" line="266"/>
         <source>Line style</source>
         <translation>Estilo de liña</translation>
     </message>
     <message>
-        <location filename="sosplot_dialog.py" line="245"/>
+        <location filename="sosplot_dialog.py" line="267"/>
         <source>Line width</source>
-        <translation>Largura da liña</translation>
+        <translation>Largura de liña</translation>
     </message>
     <message>
-        <location filename="sosplot_dialog.py" line="246"/>
+        <location filename="sosplot_dialog.py" line="268"/>
         <source>Marker</source>
         <translation>Marcador</translation>
     </message>
     <message>
-        <location filename="sosplot_dialog.py" line="247"/>
+        <location filename="sosplot_dialog.py" line="269"/>
         <source>Marker size</source>
         <translation>Tamaño do marcador</translation>
     </message>
     <message>
-        <location filename="sosplot_dialog.py" line="248"/>
+        <location filename="sosplot_dialog.py" line="270"/>
         <source>Opacity</source>
         <translation>Opacidade</translation>
     </message>
@@ -593,12 +610,12 @@
 <context>
     <name>XmlItem</name>
     <message>
-        <location filename="utils.py" line="330"/>
+        <location filename="utils.py" line="338"/>
         <source>Name</source>
         <translation>Nome</translation>
     </message>
     <message>
-        <location filename="utils.py" line="332"/>
+        <location filename="utils.py" line="340"/>
         <source>Value</source>
         <translation>Valor</translation>
     </message>

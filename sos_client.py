@@ -216,7 +216,7 @@ class SOSClient:
     def showLayerXml (self):
         layer = self.iface.activeLayer()
         if layer == None:
-            #TODO mensaje seleccionar capa
+            self.iface.messageBar().pushMessage (self.tr(u'SOS Client'),self.tr("You must select a layer"), QgsMessageBar.WARNING, 10)
             return
         
         xml = layer.customProperty("xml")
@@ -225,8 +225,7 @@ class SOSClient:
             dlg.show()
             dlg.exec_()
         else:
-            #TODO Mensaje sin customProperty xml
-            pass
+            self.iface.messageBar().pushMessage (self.tr(u'SOS Client'),self.tr("Layer have not a xml property"), QgsMessageBar.WARNING, 10)
             
     def showPlotDialog (self):
         try:
@@ -239,4 +238,4 @@ class SOSClient:
     def about(self):
         #TODO
         QMessageBox.information(self.iface.mainWindow(), self.tr(u"About SOS Client"), 
-                                self.tr("Python QuickWKT Plugin<br />This plugin creates a set of temporary layers and populates them with WKT features that you can paste in a dialog window.<br /><strong>All layers created by this plugins are temporary layers, all data will be lost when you quit QGIS.</strong><br />Author: Alessandro Pasotti (aka: elpaso)<br />Mail: <a href=\"mailto:info@itopen.it\">info@itopen.it</a><br />Web: <a href=\"http://www.itopen.it\">www.itopen.it</a>\n"))
+                                self.tr(u"SOS Client Plugin<br />This plugin request observations data from OGC SOS server to create a vector layer.<br />Also provides tools to plot observations data<br /><br />Author: Rubén Mosquera Varela<br />E-mail: <a href=\"mailto:ruben.mosquera.varela@gmail.com\">ruben.mosquera.varela@gmail.com</a>"))

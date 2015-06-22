@@ -36,8 +36,16 @@ from tempfile import mkstemp
 import os
 
 class SOSClientDialog(QtGui.QDialog, WidgetFactory.getClass('sos_client_dialog')):
+    """
+    SOS Client main dialog.
+    """
     def __init__(self, parent=None, iface = None):
-        """Constructor."""
+        """Constructor
+        :param parent: Parent object
+        :type parent: QWidget
+        :param iface: A QGIS interface instance.
+        :type iface: QgsInterface
+        """
         super(SOSClientDialog, self).__init__(parent)
         
         settings = QtCore.QSettings ()
@@ -390,14 +398,10 @@ class SOSClientDialog(QtGui.QDialog, WidgetFactory.getClass('sos_client_dialog')
             opWidget.widget().deleteLater()
         
         opWidget = QLineEditButton (icon = QtGui.QIcon(":/plugins/SOSClient/coordinate_capture.png"))
-        #opẀidget.setValidator()
         opWidget.setPlaceholderText(self.filterRequest.spatialOperand)
         opWidget.buttonClicked.connect(self.mapSelectionTool) 
         self.laySpatialFilter.addWidget (opWidget)
         opWidget.editingFinished.connect(self.spatialValueChanged)
-        #TODO
-        #if self.filterRequest.spatialOperand == "gml:Envelope":
-        #    opWidget.setText (QgsGeometry.fromRect(self.service[self.selectedOffering].boundedBy).exportToWkt())
         
     def mapSelectionTool(self):
         self.hide()

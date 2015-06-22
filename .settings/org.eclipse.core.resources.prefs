@@ -21,6 +21,7 @@ encoding//test/test_xmlparser.py=utf-8
 encoding//test/utilities.py=utf-8
 encoding//ui/__init__.py=utf-8
 encoding//ui/resources_rc.py=utf-8
+encoding//ui/utils.py=utf-8
 encoding/__init__.py=utf-8
 encoding/plugin_upload.py=utf-8
 encoding/qgsmaptool_capturespatialoperand.py=utf-8

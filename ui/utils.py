@@ -1,3 +1,17 @@
+# -*- coding: utf-8 -*-
+"""
+@author: Rubén Mosquera Varela
+@contact: ruben.mosquera.varela@gmail.com
+@copyright:
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+"""
 from PyQt4 import QtGui, QtCore
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt4agg import NavigationToolbar2QTAgg as NavigationToolbar
@@ -108,10 +122,6 @@ class QMplWidget (QtGui.QWidget):
         if self.ydate:
             y = [mpdates.datestr2num(v) for v in y]
         
-#         line, = self.ax.plot_date (x, y, label = label,
-#                                    xdate=self.xdate, ydate=self.ydate,
-#                                    picker=5,
-#                                    fmt='')
         line, = self.ax.plot (x, y, label = label,
                                    picker=5)
         if self.xdate:

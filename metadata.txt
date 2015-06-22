@@ -10,7 +10,7 @@
 name=SOS Client
 qgisMinimumVersion=2.4
 description=OGC Sensor Observation Service Client
-version=0.5
+version=0.6
 author=Rubén Mosquera Varela
 email=ruben.mosquera.varela@gmail.com
 
@@ -20,6 +20,10 @@ email=ruben.mosquera.varela@gmail.com
 
 # Uncomment the following line and add your changelog:
 changelog=
+	- 0.6
+	· Añadido filtro por Feature Of Interest
+	· Corrección en la detección de campos numéricos en las observaciones
+	· Añadida ayuda
 	- 0.5
 	· Primera beta completa, con errores conocidos y sin documentar
 	- 0.4
@@ -40,7 +44,7 @@ tags=OGC,SOS,Sensor,Observations
 
 homepage=
 tracker=
-repository=
+repository=https://github.com/ruben-mv/SOSClient.git
 icon=ui/icon.png
 # experimental flag
 experimental=True

@@ -7,7 +7,9 @@
         copyright            : (C) 2014 by Rubén Mosquera Varela
         email                : ruben.mosquera.varela@gmail.com
  ***************************************************************************/
-
+@author: Rubén Mosquera Varela
+@contact: ruben.mosquera.varela@gmail.com
+@copyright:
 /***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
