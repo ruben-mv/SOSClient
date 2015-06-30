@@ -13,6 +13,7 @@ description=OGC Sensor Observation Service Client
 version=0.6
 author=Rubén Mosquera Varela
 email=ruben.mosquera.varela@gmail.com
+about=SOS Client alows QGIS to request sensors observations data from QGC Sensor Observation Service server 
 
 # End of mandatory metadata
 
@@ -43,8 +44,8 @@ changelog=
 tags=OGC,SOS,Sensor,Observations
 
 homepage=
-tracker=
-repository=https://github.com/ruben-mv/SOSClient.git
+repository=https://github.com/ruben-mv/SOSClient
+tracker=https://github.com/ruben-mv/SOSClient/issues
 icon=ui/icon.png
 # experimental flag
 experimental=True

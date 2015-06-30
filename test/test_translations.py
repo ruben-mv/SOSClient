@@ -1,4 +1,4 @@
-# coding=utf-8
+# -*- coding: utf-8 -*-
 """Safe Translations Test.
 
 .. note:: This program is free software; you can redistribute it and/or modify

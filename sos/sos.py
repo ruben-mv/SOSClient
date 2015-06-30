@@ -390,7 +390,7 @@ class FilterRequest (object):
             self.temporalFilter = False
             self.temporalOperator = self._service.temporalOperators[0]
             self.temporalOperand  = self._service.temporalOperands [0]
-            self._temporalValue    = None
+            self._temporalValue   = None
             
         self.scalarFilter = None
         if len(self._service.scalarOperators):
@@ -438,7 +438,10 @@ class FilterRequest (object):
             self._spatialValue = None
     @property
     def temporalValue (self):
-        return self._temporalValue if self._temporalValue else ""
+        try:
+            return self._temporalValue if self._temporalValue else ""
+        except:
+            return ""
         
     @temporalValue.setter        
     def temporalValue (self, value):
@@ -451,7 +454,10 @@ class FilterRequest (object):
         
     @property
     def scalarValue (self):
-        return self._scalarValue if self._scalarValue else ""
+        try:
+            return self._scalarValue if self._scalarValue else ""
+        except:
+            return ""
         
     @scalarValue.setter        
     def scalarValue (self, value):
