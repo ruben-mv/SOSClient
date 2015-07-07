@@ -235,20 +235,43 @@ class SOSObservationsParser (XMLParser):
             geo = GMLParser.geometryFromGML(boundedByNode)
             if geo:                
                 self.provider.extent = geo.boundingBox()
-        #if yx: TODO transformar rectángulo
-        #    self.provider.extent.set (se)
         
-        timeParser = XMLParserFactory.getInstance ("GMLTime")()
         _, tag = self.searchFirst(xml, 'member/*')
-        #omParser = XMLParserFactory.getInstance(tag)
-        components = {}
+        omParser = XMLParserFactory.getInstance(tag)(self.provider, yx)
+        
+        components = omParser.parse(xml) 
+                                    
+        components = filter(lambda f: f != None, components.values())
+        hasTime = False
+        for i, f in enumerate(components):
+            if f.name() == "Time" or f.name() == "SamplingTime":
+                components.pop (i)
+                f.setName("Time")
+                self.provider.fields.append(f)
+                hasTime = True
+                break
+        if not hasTime:
+            self.provider.fields.append(QgsField ("Time", QVariant.String, ''))
+        self.provider.fields.extend(components)
+           
+        return self.provider
+    
+class ObservationParser (XMLParser):
+    def __init__(self, provider, axisInverted):
+        self.provider = provider
+        self.yx = axisInverted
+        self.timeParser = XMLParserFactory.getInstance ("GMLTime")()
+
+    def parse (self, xml):
         def _float (value):
             try: return float(value)
             except: return None
+        
+        components = {}
         for member, _ in self.search(xml, "member"):
-            for node, tag in chain(self.search (member, "Observation/*"), self.search (member, "Measurement/*")):
+            for node, tag in self.search (member, "Observation/*"):
                 if tag == "samplingTime":
-                    samplingTime = timeParser.parse(node)
+                    samplingTime = self.timeParser.parse(node)
                 elif tag == "observedProperty":
                     _, prop = self.searchFirst(node, "@href")
                     if prop:
@@ -263,7 +286,7 @@ class SOSObservationsParser (XMLParser):
                         _, name = self.searchFirst (point, "name")
                         pointGeo, _ = self.searchFirst(point, "position")
                         pointGeo = GMLParser.geometryFromGML(pointGeo)
-                        if yx:
+                        if self.yx:
                             pointGeo = pointGeo.asPoint()
                             pointGeo = QgsGeometry.fromPoint(QgsPoint (pointGeo.y(),pointGeo.x()))
                         self.provider.features [foi_id] = (name, pointGeo)
@@ -273,67 +296,90 @@ class SOSObservationsParser (XMLParser):
                     if not hasSamplingPoint:
                         for _, foi_id in self.search (node, "FeatureCollection/featureMember@href"):
                             self.provider.features [foi_id] = (foi_id, None)
-                elif tag == "result" or node.localName () == "result":
-                    if tag != "result":
-                        #Measurement
-                        self.provider.setObservation (unicode(foi_id), QDateTime.fromString(str(samplingTime), Qt.ISODate), unicode(prop), str(tag))
-                        if prop in components and components[prop] == None:
-                            #components[prop] = QgsField (prop, QVariant.Double if tag.isnumeric() else QVariant.String, node.attribute("uom"))
-                            components[prop] = QgsField (prop, QVariant.Double if _float(tag) else QVariant.String, node.attribute("uom"))
-                    else:
-                        node, tag = self.searchFirst(node, "*")
-                        if tag == "DataArray":
-                            simpleDataRecord = []
-                            for fieldNode, field in self.search(node, "elementType/SimpleDataRecord/field@name"):
-                                simpleDataRecord.append(field)
-                                fieldNode, definition = self.searchFirst(fieldNode, "*/@definition")
-                                if definition in components and components[definition] == None:
-                                    if fieldNode.localName () == "Quantity":
-                                        fieldType = QVariant.Double
-                                        _, definition = self.searchFirst (fieldNode, "uom@code")
-                                    elif fieldNode.localName () == "Time":
-                                        fieldType = QVariant.String
-                                    else:
-                                        fieldType = QVariant.String
-                                    components[definition] = QgsField (field, fieldType, definition)
-                            
-                            encoding, _ = self.searchFirst (node, "encoding")
-                            _, blockSeparator = self.searchFirst (encoding, "TextBlock@blockSeparator")
-                            _, tokenSeparator = self.searchFirst (encoding, "TextBlock@tokenSeparator")
-                            _, values = self.searchFirst (node, "values")
+                elif tag == "result":
+                    node, tag = self.searchFirst(node, "*")
+                    if tag == "DataArray":
+                        simpleDataRecord = []
+                        for fieldNode, field in chain(self.search(node, "elementType/SimpleDataRecord/field@name"),self.search(node, "elementType/DataRecord/field@name")):
+                            simpleDataRecord.append(field)
+                            fieldNode, definition = self.searchFirst(fieldNode, "*/@definition")
+                            if definition in components and components[definition] == None:
+                                if fieldNode.localName () == "Quantity":
+                                    fieldType = QVariant.Double
+                                    _, definition = self.searchFirst (fieldNode, "uom@code")
+                                elif fieldNode.localName () == "Time":
+                                    fieldType = QVariant.String
+                                else:
+                                    fieldType = QVariant.String
+                                components[definition] = QgsField (field, fieldType, definition)
+                        
+                        encoding, _ = self.searchFirst (node, "encoding")
+                        _, blockSeparator = self.searchFirst (encoding, "TextBlock@blockSeparator")
+                        _, tokenSeparator = self.searchFirst (encoding, "TextBlock@tokenSeparator")
+                        _, values = self.searchFirst (node, "values")
+                        try:
                             indexes = map(simpleDataRecord.index, ["feature", "Time"])
-                            if len(indexes) != 2:
-                                raise #TODO
-                            map(simpleDataRecord.pop, indexes)
-                            for block in filter (lambda x: len(x), values.split (blockSeparator)):
-                                observation = block.split(tokenSeparator)
-                                observationKeys = map(observation.pop, indexes)
-                                map (lambda prop, value: self.provider.setObservation (unicode(observationKeys[0]), QDateTime.fromString(observationKeys[1], Qt.ISODate), unicode(prop), str(value)), simpleDataRecord, observation)
-                                    
-        components = filter(lambda f: f != None, components.values())
-        hasTime = False
-        for i, f in enumerate(components):
-            if f.name() == "Time":
-                components.pop (i)
-                self.provider.fields.append(f)
-                hasTime = True
-                break
-        if not hasTime:
-            self.provider.fields.append(QgsField ("Time", QVariant.String, ''))
-        self.provider.fields.extend(components)
-           
-        return self.provider
-    
-class ObservationParser (XMLParser):
-    def __init__(self):
-        pass
+                        except:
+                            indexes = None
+                        
+                        if not indexes:
+                            try:
+                                indexes = map(simpleDataRecord.index, ["FeatureOfInterest","SamplingTime"])
+                            except:
+                                indexes = None
+                                
+                        if not indexes:
+                            raise ValueError('SimpleDataRecord = ' + str(simpleDataRecord)) 
 
-    def parse (self, xml):
-        xml = XMLParser.parse(self, xml)
+                        map(simpleDataRecord.pop, indexes)
+                        for block in filter (lambda x: len(x), values.split (blockSeparator)):
+                            observation = block.split(tokenSeparator)
+                            observationKeys = map(observation.pop, indexes)
+                            map (lambda prop, value: self.provider.setObservation (unicode(observationKeys[0]), QDateTime.fromString(observationKeys[1], Qt.ISODate), unicode(prop), str(value)), simpleDataRecord, observation)
+        return components                        
         
 class MeasurementParser (XMLParser):
-    def __init__(self):
-        pass
+    def __init__(self, provider, axisInverted):
+        self.provider = provider
+        self.yx = axisInverted
+        self.timeParser = XMLParserFactory.getInstance ("GMLTime")()
 
     def parse (self, xml):
-        xml = XMLParser.parse(self, xml)
+        def _float (value):
+            try: return float(value)
+            except: return None
+        
+        components = {}
+        for member, _ in self.search(xml, "member"):
+            for node, tag in self.search (member, "Measurement/*"):
+                if tag == "samplingTime":
+                    samplingTime = self.timeParser.parse(node)
+                elif tag == "observedProperty":
+                    _, prop = self.searchFirst(node, "@href")
+                    if prop:
+                        if not prop in components: components[prop] = None
+                    else:
+                        for _, prop in self.search (node, "CompositePhenomenon/component@href"):
+                            if not prop in components: components[prop] = None
+                elif tag == "featureOfInterest":
+                    hasSamplingPoint = False
+                    for point, foi_id in chain(self.search (node, "FeatureCollection/featureMember/SamplingPoint@id"),self.search (node, "SamplingPoint@id"),self.search (node, "SamplingPointAtDepth@id")):
+                        hasSamplingPoint = True
+                        _, name = self.searchFirst (point, "name")
+                        pointGeo, _ = self.searchFirst(point, "position")
+                        pointGeo = GMLParser.geometryFromGML(pointGeo)
+                        if self.yx:
+                            pointGeo = pointGeo.asPoint()
+                            pointGeo = QgsGeometry.fromPoint(QgsPoint (pointGeo.y(),pointGeo.x()))
+                        self.provider.features [foi_id] = (name, pointGeo)
+                        if point.localName () == "SamplingPointAtDepth":
+                            _, depth = self.searchFirst (point, "depth")
+                            foi_id = (foi_id, depth)
+                    if not hasSamplingPoint:
+                        for _, foi_id in self.search (node, "FeatureCollection/featureMember@href"):
+                            self.provider.features [foi_id] = (foi_id, None)
+                elif node.localName () == "result":
+                    self.provider.setObservation (unicode(foi_id), QDateTime.fromString(str(samplingTime), Qt.ISODate), unicode(prop), str(tag))
+                    if prop in components and components[prop] == None:
+                        components[prop] = QgsField (prop, QVariant.Double if _float(tag) else QVariant.String, node.attribute("uom"))
+        return components                        

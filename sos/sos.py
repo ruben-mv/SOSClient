@@ -248,7 +248,7 @@ class SensorObservationService (QObject):
             
         if filters.scalarFilter:
             result = doc.createElement("result")
-            operator = doc.createElement("ogc:%s" % filters.scalarOperator)
+            operator = doc.createElement("ogc:PropertyIs%s" % filters.scalarOperator)
             prop = doc.createElement("ogc:PropertyName")
             prop.appendChild (doc.createTextNode (filters.scalarOperand))
             operator.appendChild (prop)

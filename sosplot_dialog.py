@@ -42,8 +42,6 @@ class SOSPlotDialog(QtGui.QDialog, WidgetFactory.getClass('sosplot_dialog')):
         self.layer = layer
         if type(self.layer) <> type (QgsVectorLayer()) :
             raise TypeError(self.tr("Selector layer isn't a vector layer"))
-        #if not "type=SOS" in layer.source():
-        #    raise TypeError("No es capa SOS")
         if self.layer.selectedFeatureCount() == 0:
             raise ValueError (self.tr("No features selected"))
         
@@ -199,7 +197,7 @@ class SOSPlotDialog(QtGui.QDialog, WidgetFactory.getClass('sosplot_dialog')):
 
         request = QgsFeatureRequest ()
         request.setFlags(QgsFeatureRequest.NoGeometry)
-
+                
         for foi in self.foiList:
             request.setFilterExpression("foi = '%s'" % foi)
             if ySorted:
@@ -213,9 +211,9 @@ class SOSPlotDialog(QtGui.QDialog, WidgetFactory.getClass('sosplot_dialog')):
                     y,x = map(list, zip(*dataSerie))
                 else:
                     x,y = map(list, zip(*dataSerie))
-                self.plotWidget.plot(x,y, f.attribute('name'))        
-        self.plotWidget.applyTimeFormat (self.timeFormat.text())
-        self.plotWidget.draw ()
+                self.plotWidget.plot(x,y, f.attribute('name'))
+                self.plotWidget.applyTimeFormat (self.timeFormat.text())
+                self.plotWidget.draw ()
         
         styles = self.StylesTable (self.plotWidget.ax.get_lines())
         self.stylesTable.setModel (styles)

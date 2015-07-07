@@ -228,12 +228,12 @@ class SOSClient:
             self.iface.messageBar().pushMessage (self.tr(u'SOS Client'),self.tr("Layer have not a xml property"), QgsMessageBar.WARNING, 10)
             
     def showPlotDialog (self):
-        try:
+        #try:
             dlg = SOSPlotDialog (self.iface.activeLayer(), parent=self.iface.mainWindow())
             dlg.show()
             dlg.exec_()
-        except Exception as error:
-            self.iface.messageBar().pushMessage (self.tr(u'SOS Client'),str(error), QgsMessageBar.CRITICAL, 10)
+        #except Exception as error:
+        #    self.iface.messageBar().pushMessage (self.tr(u'SOS Client'),unicode(error), QgsMessageBar.CRITICAL, 10)
     
     def about(self):
         #TODO

@@ -115,15 +115,24 @@ class QMplWidget (QtGui.QWidget):
         if self.ydate and timeFormatter:
             self.ax.yaxis.set_major_formatter(timeFormatter)
         self.figure.autofmt_xdate()
-            
+    
     def plot(self, x=[], y=[], label = None):
+        def _float(value):
+            try:
+                return float(value)
+            except:
+                return -9999
+            
         if self.xdate:
             x = [mpdates.datestr2num(v) for v in x]
+        else:
+            x = [_float(v) for v in x]
         if self.ydate:
             y = [mpdates.datestr2num(v) for v in y]
+        else:
+            y = [_float(v) for v in y]
         
-        line, = self.ax.plot (x, y, label = label,
-                                   picker=5)
+        line, = self.ax.plot (x, y, label = label, picker=5)
         if self.xdate:
             self.ax.xaxis_date()
         if self.ydate:
