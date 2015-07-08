@@ -22,7 +22,6 @@ about=SOS Client alows QGIS to request sensors observations data from QGC Sensor
 # Uncomment the following line and add your changelog:
 changelog=
 	- 1.0
-	· First complete release
 	· Code refactoring
 	· Code documentation
 	· Minor bug fixes
