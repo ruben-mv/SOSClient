@@ -1,23 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-/***************************************************************************
  QgsTime... classes
-                             -------------------
-        begin                : 2014-11-26
-        copyright            : (C) 2014 by Rubén Mosquera Varela
-        email                : ruben.mosquera.varela@gmail.com
- ***************************************************************************/
-@author: Rubén Mosquera Varela
-@contact: ruben.mosquera.varela@gmail.com
-@copyright:
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
 """
 
 import abc
@@ -26,6 +9,9 @@ from datetime import datetime
 #import pytz
 
 class QgsTime (object):
+    """
+    Abstract base class for QgsTime types
+    """
     __metadata__ = abc.ABCMeta
 
     TimeInstant = 1
@@ -37,10 +23,9 @@ class QgsTime (object):
         self._values = ["latest" for _ in range(timePrimitive)]
         
     def _parse (self, dt):
-        '''
-        
-        :param dt:
-        '''
+        """
+        :param dt: datetime, latest or first
+        """
         if dt in ["latest", "first"]:
             return dt
         
@@ -76,6 +61,9 @@ class QgsTime (object):
         return " ".join([toStr(dt) for dt in self._values])
 
 class QgsTimePeriod (QgsTime):
+    """
+    Represents a time period with begin date and time and end date and time
+    """
     def __init__(self, begin="", end=""):
         super(QgsTimePeriod, self).__init__(QgsTime.TimePeriod)
         self._values[0] = self._parse(begin)
@@ -98,6 +86,9 @@ class QgsTimePeriod (QgsTime):
         return self._getTime(1)
     
 class QgsTimeInstant (QgsTime):
+    """
+    Represents a time instant
+    """
     def __init__(self, time=""):
         super(QgsTimeInstant, self).__init__(QgsTime.TimeInstant)
         self._values[0] = self._parse(time)

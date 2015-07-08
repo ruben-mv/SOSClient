@@ -60,7 +60,7 @@
     <message>
         <location filename="sos_client.py" line="188"/>
         <source>About</source>
-        <translation>A cerca de</translation>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <location filename="sos_client.py" line="219"/>

@@ -1,29 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-/***************************************************************************
- GML...Parser classes
-                             -------------------
-        begin                : 2014-11-26
-        copyright            : (C) 2014 by Rubén Mosquera Varela
-        email                : ruben.mosquera.varela@gmail.com
- ***************************************************************************/
-@author: Rubén Mosquera Varela
-@contact: ruben.mosquera.varela@gmail.com
-@copyright:
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free SoftwGMLTimeParser()are Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
+This module includes GML...Parser classes.
 """
 
 from xmlparser import XMLParser
 import qgstime
 
 class GMLTimeInstantParser (XMLParser):
+    """
+    Parse an xml node to extract timePosition as QgsTimeInstant
+    """
     def parse (self, xml):
         xml = XMLParser.parse(self, xml)
 
@@ -31,6 +17,9 @@ class GMLTimeInstantParser (XMLParser):
         return qgstime.QgsTimeInstant (time)
 
 class GMLTimePeriodParser (XMLParser):
+    """
+    Parse an xml node to extract beginPosition and endPosition as QgsTimePeriod
+    """
     def parse (self, xml):
         xml = XMLParser.parse(self, xml)
         
@@ -40,6 +29,9 @@ class GMLTimePeriodParser (XMLParser):
         return qgstime.QgsTimePeriod(begin, end)
 
 class GMLTimeParser (XMLParser):
+    """
+    Parse an xml node to extract type and process it with correct parser
+    """
     def parse (self, xml):
         xml = XMLParser.parse(self, xml)
         xml, timeType = self.searchFirst(xml, '*@type')

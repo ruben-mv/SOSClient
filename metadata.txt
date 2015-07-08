@@ -10,7 +10,7 @@
 name=SOS Client
 qgisMinimumVersion=2.4
 description=OGC Sensor Observation Service Client
-version=0.6
+version=1.0
 author=Rubén Mosquera Varela
 email=ruben.mosquera.varela@gmail.com
 about=SOS Client alows QGIS to request sensors observations data from QGC Sensor Observation Service server 
@@ -21,29 +21,34 @@ about=SOS Client alows QGIS to request sensors observations data from QGC Sensor
 
 # Uncomment the following line and add your changelog:
 changelog=
+	- 1.0
+	· First complete release
+	· Code refactoring
+	· Code documentation
+	· Minor bug fixes
 	- 0.6
-	· Añadido filtro por Feature Of Interest
-	· Corrección en la detección de campos numéricos en las observaciones
-	· Añadida ayuda
+	· Add Feature Of Interest filter
+	· Numeric field detection at observations fixed
+	· Add help
 	- 0.5
-	· Primera beta completa, con errores conocidos y sin documentar
+	· First complete beta release, with know bugs and helpless
 	- 0.4
-	· Refactorización completa.
-	· Adaptación a la versión 2.6.0 de Plugin Builder.
+	· Complete code refactoring
+	· Adapt to Plugin Builder 2.6.0.
 	- 0.3
-	· Procesado de ObservationCollections.
-	· Visualización de gráficos básicos (beta).
+	· ObservationCollections parser.
+	· Basic plotting (beta).
 	- 0.2
-	· Peticións básicas de observacións
-	· Visualización dos datos xeográficos referidos as observacións
+	· Basic getObservations requests
+	· Geometric observation data visualization
 	- 0.1
-	· Xestión de conexións
-	· Descarga e procesamento básico do capabilities document
+	· Conections managament
+	· Download and basic capabilities document processing
 
 # Tags are comma separated with spaces allowed
 tags=OGC,SOS,Sensor,Observations
 
-homepage=
+homepage=https://github.com/ruben-mv/SOSClient
 repository=https://github.com/ruben-mv/SOSClient
 tracker=https://github.com/ruben-mv/SOSClient/issues
 icon=ui/icon.png

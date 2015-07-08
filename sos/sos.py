@@ -1,23 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-/***************************************************************************
- SensorObservationService
-                             -------------------
-        begin                : 2014-11-26
-        copyright            : (C) 2014 by Rubén Mosquera Varela
-        email                : ruben.mosquera.varela@gmail.com
- ***************************************************************************/
-@author: Rubén Mosquera Varela
-@contact: ruben.mosquera.varela@gmail.com
-@copyright:
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
+ sos module
 """
 
 from sosparser import * #@UnusedWildImport
@@ -27,8 +10,16 @@ from PyQt4.QtXml import QDomDocument
 from qgis.core import QgsGeometry, QgsRectangle, QgsOgcUtils, QgsFields, QgsField, QgsFeature, QgsCoordinateReferenceSystem, QGis, QgsVectorFileWriter, QgsVectorLayer
 
 class SensorObservationService (QObject):
-
+    """
+    Represent a Sensor Observation Service
+    """
     def __init__(self, url, xmlFile=None):
+        """
+        :param url: Sensor Observation Service URL
+        :type str
+        :param xmlFile: XML capabilities filename
+        :type str
+        """
         super (SensorObservationService, self).__init__()
         
         self._url = url
@@ -161,6 +152,21 @@ class SensorObservationService (QObject):
                                 unicode (self.provider)])) + "</body></html>"
         
     def getObservations (self, offering="", properties=[], features=[], procedures=[], filters=None, resultModel = ""):
+        """
+        :param offering: Offering name
+        :type offering: str
+        :param properties: Selected properties names
+        :type properties: str list
+        :param features: Selected features of interest names
+        :type features: str list
+        :param procedures: Selected procedures names
+        :type procedures: str list
+        :param filters: Configured filters
+        :type filters: FilterRequest
+        :param resultModel: Selected result model
+        :type resultModel: str
+        :return: xml data
+        """
         doc = QDomDocument()
         
         doc.appendChild(doc.createProcessingInstruction('xml', 'version="1.0" encoding="UTF-8"'))
@@ -290,6 +296,9 @@ class SensorObservationService (QObject):
         return doc.toString(4)
         
 class SOSCapabilities ():
+    """
+    Capabilities data
+    """
     def __init__(self):
         self.xml = ""
         self.version = ""
@@ -300,6 +309,9 @@ class SOSCapabilities ():
         self.observationOfferingList = {}
 
 class SOSServiceIdentification (QObject):
+    """
+    Service Identification data
+    """
     def __init__(self) :
         super (SOSServiceIdentification, self).__init__()
         self.title = ""
@@ -323,6 +335,9 @@ class SOSServiceIdentification (QObject):
                                 self.serviceType +' (' + self.serviceTypeVersion +')']))
 
 class SOSServiceProvider (QObject):
+    """
+    Service Provider data
+    """
     def __init__(self) :
         super (SOSServiceProvider, self).__init__()
         self.providerName = ""
@@ -345,12 +360,18 @@ class SOSServiceProvider (QObject):
                                 "<br>".join(self.address.values())]))
 
 class SOSOperationMetadata ():
+    """
+    Operations metadata
+    """
     def __init__(self):
         self.name = ""
         self.methods = {}
         self.parameters = {}
 
 class SOSFilterCapabilities ():
+    """
+    Filter capabilities data
+    """
     def __init__(self):
         self.spatial_operands = []
         self.spatial_operators = []
@@ -359,6 +380,9 @@ class SOSFilterCapabilities ():
         self.scalar_operators = []
 
 class SOSObservationOffering ():
+    """
+    Observation offering data
+    """
     def __init__(self) :
         self.id = ""
         self.name = ""
@@ -374,6 +398,9 @@ class SOSObservationOffering ():
         self.responseMode = ""
         
 class FilterRequest (object):
+    """
+    Filter request: Spatial, Temporal and Scalar with Operator and Operands
+    """
     def __init__(self, service):
         assert isinstance(service, SensorObservationService)        
         self._service = service
@@ -468,6 +495,9 @@ class FilterRequest (object):
 
         
 class ExceptionReport(Exception):
+    """
+    SOS Exception
+    """
     def __init__(self, exceptionCode, exceptionText):
         self.__exceptionCode = exceptionCode
         self.__exceptionText = exceptionText
@@ -484,7 +514,9 @@ class ExceptionReport(Exception):
         return self.exceptionCode + ": " + self.exceptionText
     
 class SOSProvider (object):
-    
+    """
+    Fake QgsVectorDataProvider
+    """
     def __init__(self):
         self.srsName = ""
         self.extent = QgsRectangle () 
@@ -494,6 +526,16 @@ class SOSProvider (object):
         self.only1stGeo = False
         
     def setObservation (self, foi, time, observedProperty, value):
+        """
+        :param foi: Feature Of Interest
+        :type foi: str
+        :param time: Phenomenom Time
+        :type time: str
+        :param observedProperty: Property
+        :type observedProperty: str
+        :param value: observed value
+        :type value: float
+        """
         try:
             timeList, propertiesList = self._observations[foi]
             propertiesList[timeList.index(time)][observedProperty] = value    
@@ -510,6 +552,9 @@ class SOSProvider (object):
             propertiesList.append({observedProperty: value})
             
     def getObservation (self, foi="", time = None):
+        """
+        Only for testing purposes!
+        """
         text = ""
         for foi in self._observations.keys():
             text += ";" + foi + ": " 
@@ -519,6 +564,9 @@ class SOSProvider (object):
         return text
     
     def getFeatures (self):
+        """
+        :return QgsFeaures generator
+        """
         fields = QgsFields()
         map (fields.append, self.fields)
         foiIds = {foiId : [] for foiId in self.features}
@@ -551,11 +599,21 @@ class SOSProvider (object):
                     yield feature
                 
 class ObservationsLayer (QObject):
-    
+    """
+    Encapsulate QgsVectorLayer generation
+    """
     finished = pyqtSignal ()
     failed = pyqtSignal (unicode)
     
     def __init__(self, name = "Observations", xmlFile=None, only1stGeo = False):
+        """
+        :param name Layer name
+        :type str
+        :param xmlFile XML Observations filename
+        :type str
+        :param only1stGeo If True only first occurrence by foi will include geometric data 
+        :type bool
+        """
         super (ObservationsLayer, self).__init__()
         self._name = name
         self.features = []
@@ -571,13 +629,16 @@ class ObservationsLayer (QObject):
     
     @pyqtSlot ()    
     def toVectorLayer (self):
+        """
+        Generate QgsVectorLayer
+        """
         try:
             if self.xmlFile:
                 xml = QFile (self.xmlFile)
                 self.provider = XMLParserFactory.getInstance("SOSObservations")().parse(xml)
                 self.provider.only1stGeo = self._only1stGeo
             
-            layer = self.toVectorLayer_geojson()
+            layer = self._toVectorLayer_geojson()
             layer.setCustomProperty("xml", self.xmlFile)
             self._layer = layer
             self._error = None
@@ -600,28 +661,28 @@ class ObservationsLayer (QObject):
             self._error = self.tr("Invalid layer")
         return self._error if self._error else ""
     
-    def toVectorLayer_sqlite (self):        
-        crs = QgsCoordinateReferenceSystem()
-        crs.createFromUserInput(self.provider.srsName)
-        
-        fileName = self.xmlFile.replace(".xml", ".sqlite")
-        fields = QgsFields ()
-        map (fields.append, self.provider.fields)
-        writer = QgsVectorFileWriter (fileName, "utf-8", fields, QGis.WKBPoint, crs, "SQLite")
+#     def toVectorLayer_sqlite (self):        
+#         crs = QgsCoordinateReferenceSystem()
+#         crs.createFromUserInput(self.provider.srsName)
+#         
+#         fileName = self.xmlFile.replace(".xml", ".sqlite")
+#         fields = QgsFields ()
+#         map (fields.append, self.provider.fields)
+#         writer = QgsVectorFileWriter (fileName, "utf-8", fields, QGis.WKBPoint, crs, "SQLite")
+# 
+#         if writer.hasError() != QgsVectorFileWriter.NoError:
+#             raise Exception (writer.errorMessage())
+#         
+#         for feature in self.provider.getFeatures():
+#             
+#             self.features.append(feature)
+#             writer.addFeature(feature)
+#         
+#         del writer #Forzar escritura a disco
+#         
+#         return QgsVectorLayer( fileName, self.name, "ogr")
 
-        if writer.hasError() != QgsVectorFileWriter.NoError:
-            raise Exception (writer.errorMessage())
-        
-        for feature in self.provider.getFeatures():
-            
-            self.features.append(feature)
-            writer.addFeature(feature)
-        
-        del writer #Forzar escritura a disco
-        
-        return QgsVectorLayer( fileName, self.name, "ogr")
-
-    def toVectorLayer_geojson (self):        
+    def _toVectorLayer_geojson (self):        
         crs = QgsCoordinateReferenceSystem()
         crs.createFromUserInput(self.provider.srsName)
         
@@ -641,26 +702,26 @@ class ObservationsLayer (QObject):
         
         return QgsVectorLayer( fileName, self.name, "ogr")
     
-    def toVectorLayer_memory (self):
-        def qgsSrsName (srsName = ""):
-            import re
-            m = re.match (".*(EPSG:[0-9]+)$",srsName)
-            return m.groups()[-1] if m else ""
-        
-        path = ("Point?type=SOS&crs={srs!s}&field=").format(srs=qgsSrsName(self.provider.srsName))
-        path += "&field=".join (map (lambda f: (str(f.name()) + ":") + ("double" if f.type() == QVariant.Double else "string"), self.provider.fields))
-        path += "&index=yes"
-        
-        for feature in self.provider.getFeatures():
-            self.features.append(feature)
-        
-        layer = QgsVectorLayer (path, self._name, "memory")
-        layerProvider = layer.dataProvider()
-        layer.startEditing()
-        layerProvider.addFeatures (self.features)
-        layer.commitChanges()
-        
-        return layer
+#     def toVectorLayer_memory (self):
+#         def qgsSrsName (srsName = ""):
+#             import re
+#             m = re.match (".*(EPSG:[0-9]+)$",srsName)
+#             return m.groups()[-1] if m else ""
+#         
+#         path = ("Point?type=SOS&crs={srs!s}&field=").format(srs=qgsSrsName(self.provider.srsName))
+#         path += "&field=".join (map (lambda f: (str(f.name()) + ":") + ("double" if f.type() == QVariant.Double else "string"), self.provider.fields))
+#         path += "&index=yes"
+#         
+#         for feature in self.provider.getFeatures():
+#             self.features.append(feature)
+#         
+#         layer = QgsVectorLayer (path, self._name, "memory")
+#         layerProvider = layer.dataProvider()
+#         layer.startEditing()
+#         layerProvider.addFeatures (self.features)
+#         layer.commitChanges()
+#         
+#         return layer
 
     def __str__(self):
         return self.provider.getObservation()
