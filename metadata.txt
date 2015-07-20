@@ -10,7 +10,7 @@
 name=SOS Client
 qgisMinimumVersion=2.4
 description=OGC Sensor Observation Service Client
-version=1.0
+version=1.0.1
 author=Rubén Mosquera Varela
 email=ruben.mosquera.varela@gmail.com
 about=SOS Client alows QGIS to request sensors observations data from QGC Sensor Observation Service server 
@@ -21,6 +21,8 @@ about=SOS Client alows QGIS to request sensors observations data from QGC Sensor
 
 # Uncomment the following line and add your changelog:
 changelog=
+    - 1.0.1
+    · Bug fix converting yx to xy coordinates on spatial selection tool
 	- 1.0
 	· Code refactoring
 	· Code documentation

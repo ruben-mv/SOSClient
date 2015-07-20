@@ -114,7 +114,7 @@ class QgsMapToolCaptureSpatialOperand (QgsMapTool):
         m.setCenter(pt)
         self.vertexMarkers.append(m)
         
-        if self.yx: pt = QgsPoint(pt.y(),pt.x())
+        #if self.yx: pt = QgsPoint(pt.y(),pt.x())
         self.captureList.append (pt)
         
         return len(self.captureList)
@@ -138,7 +138,7 @@ class QgsMapToolCaptureSpatialOperand (QgsMapTool):
             geom = QgsGeometry.fromPoint(self.captureList[0])
         elif self.isPolygon and numPoints == 2:
             geom = QgsGeometry.fromPolyline(self.captureList)
-            geom = QgsGeometry.fromRect(geom.boundingBox()) 
+            #geom = QgsGeometry.fromRect(geom.boundingBox())
         elif self.isPolygon:
             geom = QgsGeometry.fromPolygon([self.captureList])
         else:
@@ -148,6 +148,16 @@ class QgsMapToolCaptureSpatialOperand (QgsMapTool):
         geom.transform(QgsCoordinateTransform(
                                               self.canvas.mapSettings().destinationCrs(),
                                               self.crs))
+        
+        if self.yx:
+            i = 0
+            vertex = geom.vertexAt(i)
+            while (vertex != QgsPoint(0,0)):
+                x = vertex.x()
+                y = vertex.y()
+                geom.moveVertex(y, x, i)
+                i+=1
+                vertex = geom.vertexAt(i) 
         
         self.selectionFinished.emit(geom.exportToWkt())
         self.clearMapCanvas()
