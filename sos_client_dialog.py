@@ -241,7 +241,9 @@ class SOSClientDialog(QtGui.QDialog, WidgetFactory.getClass('sos_client_dialog')
         self.tabWidget.setEnabled (False)
         
         if post:
-            self.reply = QgsNetworkAccessManager.instance().post(QNetworkRequest(url),post)
+            request = QNetworkRequest(url)
+            request.setRawHeader('Content-Type', 'application/xml')
+            self.reply = QgsNetworkAccessManager.instance().post(request,post)
         else:
             self.reply = QgsNetworkAccessManager.instance().get(QNetworkRequest(url))
             

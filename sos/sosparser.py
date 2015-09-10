@@ -159,7 +159,14 @@ class SOSOperationMetadataParser (XMLParser):
         methods = []
         for node, name in self.search(xml, "DCP/HTTP/*"):
             _, href = self.searchFirst(node, "@href")
-            methods.append((name,href))
+            constrainNode,_ = self.searchFirst (node, 'Constraint@name=Content-Type')
+            if constrainNode:
+                for _, contentType in self.search(constrainNode, 'AllowedValues/Value'):
+                    if contentType in ['application/xml','text/xml']:
+                        methods.append((name,href))
+                        break
+            else:
+                methods.append((name,href))
         self.operation.methods = dict(methods)
         
         parameters = []

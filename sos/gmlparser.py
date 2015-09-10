@@ -34,11 +34,15 @@ class GMLTimeParser (XMLParser):
     """
     def parse (self, xml):
         xml = XMLParser.parse(self, xml)
-        xml, timeType = self.searchFirst(xml, '*@type')
+        timeNode, timeType = self.searchFirst(xml, '*@type')
+        
+        if not timeType:
+            timeNode, _ = self.searchFirst(xml, '*@id')
+            timeType = 'gml:' + timeNode.tagName() + 'Type'
         
         if timeType == 'gml:TimePeriodType':
-            return GMLTimePeriodParser().parse(xml)
+            return GMLTimePeriodParser().parse(timeNode)
         elif timeType == 'gml:TimeInstantType':
-            return GMLTimeInstantParser().parse(xml)
+            return GMLTimeInstantParser().parse(timeNode)
         else:
             return qgstime.QgsTime()
